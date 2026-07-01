@@ -1,0 +1,14 @@
+{
+    "worldIndex": 11,
+    "levelIndex": 15,
+    "minMoves": 0,
+    "hintMoves": "",
+    "layout": [
+        "-  -  w  9  -  -  -",
+        "1  w  w  1  -  -  -",
+        "1  -  -  w  1  w  w",
+        "1  -  -  1  8  1  w",
+        "1  w  w  1  1  1  -",
+        "1  1  1  1  -  -  -"
+    ]
+}

@@ -29,6 +29,9 @@ public class LevelLoader : MonoBehaviour
     private Dictionary<Vector2Int, GameObject> spawnedTiles = new Dictionary<Vector2Int, GameObject>();
     private GameObject playerInstance;
 
+    /// <summary>Şu an aktif olan levelın tüm verileri (JSON'dan okunan)</summary>
+    public LevelData CurrentLevelData { get; private set; }
+
     /// <summary>Her level yüklendiğinde (restart veya yeni level) tetiklenir.</summary>
     public static event System.Action OnLevelLoaded;
 
@@ -56,16 +59,33 @@ public class LevelLoader : MonoBehaviour
 
         ClearLevel();
 
-        string filename = $"w{world}l{level}";
+        // JSON dosyasını yükle
+        string filename = $"LevelsJSON/w{world}l{level}";
         TextAsset levelAsset = Resources.Load<TextAsset>(filename);
 
         if (levelAsset == null)
         {
-            Debug.LogError($"Level file '{filename}' not found in Resources!");
+            Debug.LogError($"Level JSON file '{filename}' not found in Resources!");
             return;
         }
 
-        string[] lines = levelAsset.text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+        try
+        {
+            CurrentLevelData = JsonUtility.FromJson<LevelData>(levelAsset.text);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Failed to parse level JSON '{filename}': {ex.Message}");
+            return;
+        }
+
+        if (CurrentLevelData == null || CurrentLevelData.layout == null)
+        {
+            Debug.LogError($"Level layout is empty or invalid in '{filename}'");
+            return;
+        }
+
+        string[] lines = CurrentLevelData.layout;
 
         for (int r = 0; r < lines.Length; r++)
         {

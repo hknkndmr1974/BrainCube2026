@@ -177,27 +177,15 @@ public class HintController : MonoBehaviour
         // Hamleleri yükle (önbelleğe al)
         if (savedMoves == null)
         {
-            TextAsset hintAsset = Resources.Load<TextAsset>("hint_moves");
-            if (hintAsset == null)
-            {
-                Debug.LogError("[HintController] hint_moves.txt bulunamadı!");
-                Finish(allDone: false);
-                yield break;
-            }
-
-            int lineIndex = (loader.worldIndex - 1) * 20 + (loader.levelIndex - 1);
-            string[] lines = hintAsset.text.Split(
-                new[] { "\r\n", "\r", "\n" }, System.StringSplitOptions.None);
-
-            if (lineIndex < 0 || lineIndex >= lines.Length || string.IsNullOrWhiteSpace(lines[lineIndex]))
+            if (loader.CurrentLevelData == null || string.IsNullOrWhiteSpace(loader.CurrentLevelData.hintMoves))
             {
                 Debug.LogWarning($"[HintController] w{loader.worldIndex}l{loader.levelIndex} için ipucu yok.");
                 Finish(allDone: false);
                 yield break;
             }
 
-            savedMoves = lines[lineIndex].Trim()
-                .Split(new[] { ' ', '\t' }, System.StringSplitOptions.RemoveEmptyEntries);
+            savedMoves = loader.CurrentLevelData.hintMoves.Split(
+                new[] { ' ', '\t' }, System.StringSplitOptions.RemoveEmptyEntries);
 
             Debug.Log($"[HintController] w{loader.worldIndex}l{loader.levelIndex}: {savedMoves.Length} hamle yüklendi.");
         }

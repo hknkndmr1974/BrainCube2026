@@ -1,0 +1,18 @@
+{
+    "worldIndex": 8,
+    "levelIndex": 2,
+    "minMoves": 83,
+    "hintMoves": "F F L L B B B B F F B B R F L B B R R R R F F F F R R R R F R B L L L F F R R R B L F L L B L F R R R B B L B B R F L B B R B B F F L L L B R F F F L L F R B L L F F",
+    "layout": [
+        "-  -  -  -  -  -  -  -  -  1  1  h4 h2 1  1",
+        "-  1  1  1  1  -  -  -  -  1  1  -  -  1  1",
+        "-  1  -  -  1  -  -  1  1  1  1  1  1  1  1",
+        "-  h1 -  -  1  8  -  1  b3 -  -  -  1  -  -",
+        "-  1  -  -  9  t1 1  1  B4 1  1  -  1  b2 b2",
+        "-  1  1  1  -  1  -  1  -  -  1  -  1  1  1",
+        "-  1  1  1  -  a1 -  1  -  -  1  -  1  -  -",
+        "-  m0 -  -  -  1  -  1  -  1  1  1  1  1  1",
+        "-  1  1  1  b1 b1 1  1  -  1  1  -  -  1  1",
+        "-  -  -  -  -  -  -  -  -  1  1  -  - s3,s4 1"
+    ]
+}
