@@ -1,0 +1,10 @@
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+1  h2 w  w  w  w  w  t2 w  h1 w  w  w  w  -
+w  b1 b1 9  w  w  -  -  w  w  w  w  w  w  -
+w  w  w  w  w  w  -  -  w  w  w  w  w  w  -
+w  w  w  w  w  a2 -  -  w  w  w  w  w  w  -
+w  1  w  w  w  w  -  -  1  w  w  w  1  w  -
+w  w  w  w  w  w  -  -  w  w  w  w  b2 w  -
+w  b3 b3 b3 1  w  -  -  w  w  w  w  b2 h3 -
+w  w  8  w  w  w  t1 w  w  w  a1 w  w  w  -
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -

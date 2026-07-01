@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8e9ced6264f21dd4ab59a74bae19c4d6
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 366130
+  packageName: FlexibleGlassDestructor
+  packageVersion: 1.1
+  assetPath: Assets/FlexibleGlassDestructor/DemoScene/DemoScene.unity
+  uploadId: 929984

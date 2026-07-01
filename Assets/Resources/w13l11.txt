@@ -1,0 +1,9 @@
+w  w  1  w  -  -
+w  8  w  w  -  -
+w  w  1  w  w  1
+w  w  w  w  w  w
+w  w  w  w  w  w
+1  1  1  b2  b2  h2
+-  w  w  -  -  -
+-  w  w  -  -  -
+-  w  w  9  -  -

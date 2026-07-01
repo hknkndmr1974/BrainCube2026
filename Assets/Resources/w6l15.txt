@@ -1,0 +1,10 @@
+-  -  -  -  -  -  -  -  -  -  -  -  - ho2 -
+-  -  -  -  8  -  -  w  w  -  -  -  -  w  -
+-  -  1  1  b1 1  b2 b2 w  -  -  w  w  w  -
+-  9  1  1 hc1 w  1  w  w  1  -  w  w  1  -
+-  -  -  w  w  w ho1 1  w  w  1  w  w  -  -
+-  -  -  w  w  1  -  -  1  1  -  w  w  -  -
+-  -  -  w  w  w  w  -  -  1  w  w  w  1  -
+-  -  -  -  w  w  1  w  w  1  w  w  w  w  -
+-  -  -  -  -  -  w  w  w  w  1  w  w  w  -
+-  -  -  -  -  -  w  w  w  w  1  -  -  -  -

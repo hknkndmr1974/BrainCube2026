@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a8fa46cfaa3739148994e30aa62b234c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 366130
+  packageName: FlexibleGlassDestructor
+  packageVersion: 1.1
+  assetPath: Assets/FlexibleGlassDestructor/DemoScene/DemoScene/LightingData.asset
+  uploadId: 929984

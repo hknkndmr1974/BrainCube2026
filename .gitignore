@@ -1,0 +1,72 @@
+# Unity klasörleri - derlenmiş/geçici dosyalar
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+
+# Özel Unity dosyaları
+*.suo
+*.user
+*.sln
+*.csproj
+
+# Unity proje önbelleği
+/[Aa]ssets/[Aa]sset[Ss]tore-5.x/
+/[Aa]ssets/[Ss]tream[Ii]ng[Aa]ssets/aa/
+
+# VS / Rider IDE dosyaları
+.vs/
+.idea/
+*.userprefs
+*.unityproj
+
+# OS dosyaları
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Crash raporları
+sysinfo.txt
+crashlytics-build.properties
+
+# APK / IPA build çıktıları
+*.apk
+*.aab
+*.ipa
+*.unitypackage
+*.app
+
+# Shader cache
+ShaderCache/
+
+# il2cpp çıktıları
+[Ii]l2cppCache/
+
+# Burst cache
+BurstCache/
+
+# Android Gradle
+*.gradle
+/[Aa]ssets/Plugins/Android/gradleTemplate.properties
+
+# JetBrains Rider
+*.sln.DotSettings.user
+
+# NuGet
+packages/
+*.nupkg
+
+# Profiler çıktıları
+[Pp]rofiler*/
+
+# Test sonuçları
+TestResults/

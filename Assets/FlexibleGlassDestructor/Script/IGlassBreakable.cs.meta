@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 435d9f1045fdd594995fe26aa714c5e7
+AssetOrigin:
+  serializedVersion: 1
+  productId: 366130
+  packageName: FlexibleGlassDestructor
+  packageVersion: 1.1
+  assetPath: Assets/FlexibleGlassDestructor/Script/IGlassBreakable.cs
+  uploadId: 929984

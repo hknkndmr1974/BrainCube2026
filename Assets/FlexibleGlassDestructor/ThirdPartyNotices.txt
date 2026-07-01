@@ -1,0 +1,12 @@
+This package contains third-party software/assets. 
+The components listed below are used under their respective licenses.
+
+- sfx100v2_glass_04.wav
+  - Creator:rubberduck
+  - Source: https://opengameart.org/content/100-cc0-sfx
+  - License: CC0
+
+- 267889__wjl__breaking-glass.wav
+  - Creator:wjl
+  - Source: https://freesound.org/people/wjl/sounds/267889/
+  - License: CC0

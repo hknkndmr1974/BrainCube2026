@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bcf09c683fe199b48b3f0a8b9ee3d845
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 366130
+  packageName: FlexibleGlassDestructor
+  packageVersion: 1.1
+  assetPath: Assets/FlexibleGlassDestructor/FlexibleGlassDestructor_Bill.prefab
+  uploadId: 929984

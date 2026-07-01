@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0410c40a0df67054f81f25eda24d7179
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373716
+  packageName: 'Environment Pack 1: Industrial Base'
+  packageVersion: 1.0.0
+  assetPath: Assets/Environment Pack 1 ( Industrial Base)/Script/GridSnapper.cs
+  uploadId: 914850

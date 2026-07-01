@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1833d38cdec191d49812a3e831f48fc1
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 366130
+  packageName: FlexibleGlassDestructor
+  packageVersion: 1.1
+  assetPath: Assets/FlexibleGlassDestructor/ThirdPartyNotices.txt
+  uploadId: 929984

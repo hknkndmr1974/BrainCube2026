@@ -1,0 +1,10 @@
+-  w  w  1  1  b2 b3 8  b2 b3 1  1  w  w  -
+1  w  1  -  1  1  -  -  -  1  1  -  1  w  1
+w  w  w  -  1  1  -  -  -  1  1  -  w  w  w
+w  w  h2 1  w  w  1  1  1  w  w  1  w  w  w
+w  w  w  -  w  w  1  9  1  w  w  -  w  w  w
+w  w  w  1  w  w  1  1  1  w  w  1  w  h3 w
+w  w  w  -  w  w  w  w  w  w  w  -  w  w  w
+w  w  w  -  w  w  w  w  w  w  w  -  w  w  w
+1  w  1  -  w  w  1  -  1  w  w  -  1  w  1
+-  w  w  1  w  w  -  -  -  w  w  1  w  w  -

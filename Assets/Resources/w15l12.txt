@@ -1,0 +1,11 @@
+h3  w  w  b2  b2  w  w  w  w
+w  w  w  w  w  w  w  w  w
+w  w  w  w  w  w  w  w  w
+w  w  w  w  w  w  w  w  h2
+w  w  w  w  w  w  w  w  w
+w  w  w  w  w  w  w  w  w
+w  w  w  9  w  w  w  w  w
+-  w  w  -  -  w  8  w  w
+-  w  w  -  -  w  w  w  -
+-  -  -  -  -  w  w  w  -
+-  -  -  -  -  w  w  b3  -

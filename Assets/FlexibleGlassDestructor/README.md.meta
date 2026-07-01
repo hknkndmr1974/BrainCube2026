@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cff3bbef06c5527469f4b5a2b6b33909
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 366130
+  packageName: FlexibleGlassDestructor
+  packageVersion: 1.1
+  assetPath: Assets/FlexibleGlassDestructor/README.md
+  uploadId: 929984
