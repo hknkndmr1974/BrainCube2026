@@ -18,6 +18,7 @@ public class TumbleController : MonoBehaviour
     private bool playerFell = false;
     private Vector3 lastMoveDir = Vector3.forward;
     private Vector3 pendingConveyorDir = Vector3.zero; // Konveyör tile'dan gelen bekleyen yön
+    private bool isTeleporting = false; // Teleport animasyonunun aktiflik durumu
 
     [Header("Mobile Swipe Settings")]
     public float minSwipeDistance = 50f;
@@ -36,6 +37,34 @@ public class TumbleController : MonoBehaviour
     private const string PrefKeyStep = "TeleportShrinkStep";
     private const string PrefKeyDur  = "TeleportStepDuration";
 
+    // ─── Durum Geçmişi ve Simülasyon Değişkenleri ──────────
+    [System.Serializable]
+    public struct BridgeState
+    {
+        public int channel;
+        public bool isActive;
+    }
+
+    [System.Serializable]
+    public struct BlockState
+    {
+        public Vector3 position;
+        public Quaternion rotation;
+        public bool isSplit;
+        public Vector3 p1Position;
+        public Quaternion p1Rotation;
+        public Vector3 p2Position;
+        public Quaternion p2Rotation;
+        public int activeSplitPlayer;
+        public System.Collections.Generic.List<BridgeState> bridgeStates;
+    }
+
+    public static bool isSimulating = false;
+    public static int simulatedWorld = -1;
+    public static int simulatedLevel = -1;
+    public static System.Collections.Generic.List<BlockState> correctStateHistory = new System.Collections.Generic.List<BlockState>();
+    public System.Collections.Generic.List<BlockState> playerStateHistory = new System.Collections.Generic.List<BlockState>();
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -49,6 +78,27 @@ public class TumbleController : MonoBehaviour
             teleportShrinkStep = PlayerPrefs.GetFloat(PrefKeyStep);
         if (PlayerPrefs.HasKey(PrefKeyDur))
             teleportStepDuration = PlayerPrefs.GetFloat(PrefKeyDur);
+
+        // Yeni bir level yüklendiyse simülasyon kilitlerini temizle
+        if (LevelLoader.Instance != null && 
+            (LevelLoader.Instance.worldIndex != simulatedWorld || LevelLoader.Instance.levelIndex != simulatedLevel))
+        {
+            isSimulating = false;
+        }
+
+        // Simülasyonu başlat
+        if (!isSimulating && LevelLoader.Instance != null &&
+            (LevelLoader.Instance.worldIndex != simulatedWorld || LevelLoader.Instance.levelIndex != simulatedLevel))
+        {
+            StartCoroutine(RunSimulation());
+        }
+        else
+        {
+            // Simülasyon tamamlandıysa başlangıç durumunu oyuncu geçmişine ekle
+            isSimulating = false;
+            playerStateHistory.Clear();
+            playerStateHistory.Add(GetCurrentState());
+        }
     }
 
     private void OnValidate()
@@ -82,24 +132,24 @@ public class TumbleController : MonoBehaviour
         float angle = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
         if (angle < 0) angle += 360f;
 
-        // Sectors (leaving ±10° deadzones around 45°, 135°, 225°, 315°):
-        // Right: 0 to 35, 325 to 360
-        // Up: 55 to 125
-        // Left: 145 to 215
-        // Down: 235 to 305
-        if ((angle >= 0 && angle < 35f) || (angle >= 325f && angle <= 360f))
+        // Hassas İzometrik Kamera Eşleşmesi (Sağ: 355°-75°, Yukarı: 85°-165°, Sol: 175°-255°, Aşağı: 265°-345°)
+        // Sağ (Right / Vector3.right)
+        if ((angle >= 355f && angle <= 360f) || (angle >= 0f && angle < 75f))
         {
             return Vector3.right;
         }
-        else if (angle >= 55f && angle < 125f)
+        // Yukarı/İleri (Forward / Vector3.forward)
+        else if (angle >= 85f && angle < 165f)
         {
             return Vector3.forward;
         }
-        else if (angle >= 145f && angle < 215f)
+        // Sol (Left / Vector3.left)
+        else if (angle >= 175f && angle < 255f)
         {
             return Vector3.left;
         }
-        else if (angle >= 235f && angle < 305f)
+        // Aşağı/Geri (Back / Vector3.back)
+        else if (angle >= 265f && angle < 345f)
         {
             return Vector3.back;
         }
@@ -109,11 +159,17 @@ public class TumbleController : MonoBehaviour
 
     private void Update()
     {
+        if (isSimulating) return;
+
         if (isSplit && !isTumbling && !playerFell)
         {
             var keyboard = Keyboard.current;
             if (keyboard != null && keyboard.spaceKey.wasPressedThisFrame)
             {
+                // Space basarak aktif küp değiştirdiğinde ipucunu sıfırla
+                HintController hc = FindObjectOfType<HintController>();
+                if (hc != null) hc.ResetHintState();
+
                 SwitchActiveSplitPlayer();
             }
         }
@@ -140,7 +196,24 @@ public class TumbleController : MonoBehaviour
         if (touchscreen != null && touchscreen.primaryTouch != null)
         {
             var touch = touchscreen.primaryTouch;
-            if (touch.press.wasPressedThisFrame)
+            
+            // Sadece aktif (basılı tutulan) dokunuşları say
+            int activeTouchCount = 0;
+            for (int i = 0; i < touchscreen.touches.Count; i++)
+            {
+                var t = touchscreen.touches[i];
+                if (t.isInProgress) // Dokunuş şu an devam ediyorsa (Began, Moved, Stationary)
+                {
+                    activeTouchCount++;
+                }
+            }
+
+            // Çoklu dokunma (zoom/pinch) durumunda tekli swipe algılamasını engelle
+            if (activeTouchCount >= 2)
+            {
+                isSwiping = false;
+            }
+            else if (touch.press.wasPressedThisFrame)
             {
                 // Don't start swiping if touching a UI element
                 bool isOverUI = false;
@@ -164,7 +237,12 @@ public class TumbleController : MonoBehaviour
             {
                 Vector2 currentPos = touch.position.ReadValue();
                 Vector2 delta = currentPos - swipeStartPos;
-                if (delta.magnitude >= minSwipeDistance)
+                
+                // Ekran yüksekliğinin %7.5'i kadar dinamik eşik (en az 50 piksel)
+                float dynamicThreshold = Screen.height * 0.075f;
+                if (dynamicThreshold < 50f) dynamicThreshold = 50f;
+
+                if (delta.magnitude >= dynamicThreshold)
                 {
                     isSwiping = false; // consume swipe
                     direction = GetSwipeDirection(delta);
@@ -206,7 +284,12 @@ public class TumbleController : MonoBehaviour
                 {
                     Vector2 currentPos = mouse.position.ReadValue();
                     Vector2 delta = currentPos - swipeStartPos;
-                    if (delta.magnitude >= minSwipeDistance)
+                    
+                    // Ekran yüksekliğinin %7.5'i kadar dinamik eşik (en az 50 piksel)
+                    float dynamicThreshold = Screen.height * 0.075f;
+                    if (dynamicThreshold < 50f) dynamicThreshold = 50f;
+
+                    if (delta.magnitude >= dynamicThreshold)
                     {
                         isSwiping = false; // consume swipe
                         direction = GetSwipeDirection(delta);
@@ -221,6 +304,10 @@ public class TumbleController : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
+            // Oyuncu kendi fiziksel girdisiyle hamle yaptığında ipucunu sıfırla
+            HintController hc = FindObjectOfType<HintController>();
+            if (hc != null) hc.ResetHintState();
+
             if (isSplit)
             {
                 StartCoroutine(Tumble1x1(direction));
@@ -405,12 +492,12 @@ public class TumbleController : MonoBehaviour
         {
             Vector3 convDir = pendingConveyorDir;
             pendingConveyorDir = Vector3.zero;
-            isTumbling = false;
+            if (!isTeleporting) isTumbling = false;
             StartCoroutine(ConveyorSlide(convDir));
             yield break;
         }
 
-        isTumbling = false;
+        if (!isTeleporting) isTumbling = false;
     }
 
     /// <summary>
@@ -446,12 +533,12 @@ public class TumbleController : MonoBehaviour
         {
             Vector3 nextDir = pendingConveyorDir;
             pendingConveyorDir = Vector3.zero;
-            isTumbling = false;
+            if (!isTeleporting) isTumbling = false;
             StartCoroutine(ConveyorSlide(nextDir));
             yield break;
         }
 
-        isTumbling = false;
+        if (!isTeleporting) isTumbling = false;
     }
 
     private void SnapToGrid()
@@ -477,6 +564,12 @@ public class TumbleController : MonoBehaviour
         rot.y = Mathf.Round(rot.y / 90f) * 90f;
         rot.z = Mathf.Round(rot.z / 90f) * 90f;
         transform.eulerAngles = rot;
+
+        // Simülasyon değilse oyuncunun durum geçmişine kaydet
+        if (!isSimulating)
+        {
+            playerStateHistory.Add(GetCurrentState());
+        }
     }
 
     private void CheckIfFell()
@@ -687,6 +780,13 @@ public class TumbleController : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2.0f);
+        if (isSimulating)
+        {
+            Debug.LogError($"[RunSimulation] Küp simülasyon sirasinda düstü! Sonsuz döngüyü önlemek için simülasyon kapatiliyor. World: {LevelLoader.Instance.worldIndex}, Level: {LevelLoader.Instance.levelIndex}");
+            isSimulating = false;
+            simulatedWorld = LevelLoader.Instance.worldIndex;
+            simulatedLevel = LevelLoader.Instance.levelIndex;
+        }
         RestartLevel();
     }
 
@@ -739,11 +839,20 @@ public class TumbleController : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2.0f);
+        if (isSimulating)
+        {
+            Debug.LogError($"[RunSimulation] Küp simülasyon sirasinda düstü! Sonsuz döngüyü önlemek için simülasyon kapatiliyor. World: {LevelLoader.Instance.worldIndex}, Level: {LevelLoader.Instance.levelIndex}");
+            isSimulating = false;
+            simulatedWorld = LevelLoader.Instance.worldIndex;
+            simulatedLevel = LevelLoader.Instance.levelIndex;
+        }
         RestartLevel();
     }
 
     private IEnumerator WinLevel()
     {
+        if (isSimulating) yield break;
+
         isTumbling = true;
         playerFell = true;
 
@@ -883,6 +992,13 @@ public class TumbleController : MonoBehaviour
         }
         blockRb.isKinematic = true;
 
+        // Simülasyon sırasında 1x1 blok görsellerini gizle
+        if (isSimulating)
+        {
+            foreach (var r in block.GetComponentsInChildren<Renderer>(true)) r.enabled = false;
+            foreach (var c in block.GetComponentsInChildren<Collider>(true)) c.enabled = false;
+        }
+
         return block;
     }
 
@@ -967,6 +1083,12 @@ public class TumbleController : MonoBehaviour
         rot.y = Mathf.Round(rot.y / 90f) * 90f;
         rot.z = Mathf.Round(rot.z / 90f) * 90f;
         target.transform.eulerAngles = rot;
+
+        // Simülasyon değilse oyuncunun durum geçmişine kaydet
+        if (!isSimulating)
+        {
+            playerStateHistory.Add(GetCurrentState());
+        }
     }
 
     private void CheckIfFell1x1()
@@ -1159,6 +1281,9 @@ public class TumbleController : MonoBehaviour
     /// </summary>
     private System.Collections.IEnumerator TeleportSequenceScale(Vector3 startPos, Vector3 targetPos)
     {
+        isTeleporting = true;
+        isTumbling = true; // Teleport animasyonu boyunca girdi ve hareket sistemlerini kilitle
+
         // Preserve original scale
         Vector3 originalScale = transform.localScale;
 
@@ -1202,6 +1327,9 @@ public class TumbleController : MonoBehaviour
         // Update camera
         CameraFollow cam = FindObjectOfType<CameraFollow>();
         if (cam != null) cam.SnapToTarget();
+
+        isTeleporting = false;
+        isTumbling = false; // Teleport tamamlandığında kilidi kaldır
     }
 
 
@@ -1215,9 +1343,436 @@ public class TumbleController : MonoBehaviour
 
     private void PlaySound(AudioClip clip)
     {
+        // Simülasyon sırasında sesleri çalma
+        if (isSimulating) return;
+
         if (clip != null)
         {
             AudioSource.PlayClipAtPoint(clip, transform.position);
+        }
+    }
+
+    // ─── Durum Yönetim Metotları ─────────────────────
+    public BlockState GetCurrentState()
+    {
+        BlockState state = new BlockState();
+        state.position = transform.position;
+        state.rotation = transform.rotation;
+        state.isSplit = isSplit;
+        if (isSplit)
+        {
+            if (player1 != null)
+            {
+                state.p1Position = player1.transform.position;
+                state.p1Rotation = player1.transform.rotation;
+            }
+            if (player2 != null)
+            {
+                state.p2Position = player2.transform.position;
+                state.p2Rotation = player2.transform.rotation;
+            }
+        }
+        state.activeSplitPlayer = activeSplitPlayer;
+
+        // Köprüleri kaydet
+        state.bridgeStates = new System.Collections.Generic.List<BridgeState>();
+        BridgeController[] bridges = FindObjectsOfType<BridgeController>();
+        foreach (var bridge in bridges)
+        {
+            state.bridgeStates.Add(new BridgeState {
+                channel = bridge.channel,
+                isActive = bridge.IsActive()
+            });
+        }
+
+        return state;
+    }
+
+    public void RestoreState(BlockState state, bool snapCamera = true)
+    {
+        // Önceki split nesneleri varsa temizle
+        if (player1 != null) Destroy(player1);
+        if (player2 != null) Destroy(player2);
+
+        isSplit = state.isSplit;
+        activeSplitPlayer = state.activeSplitPlayer;
+
+        if (isSplit)
+        {
+            player1 = Create1x1Block(state.p1Position, "SplitPlayer1");
+            player1.transform.rotation = state.p1Rotation;
+
+            player2 = Create1x1Block(state.p2Position, "SplitPlayer2");
+            player2.transform.rotation = state.p2Rotation;
+
+            SetMainBlockActive(false);
+
+            CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
+            if (cameraFollow != null)
+            {
+                cameraFollow.target = (activeSplitPlayer == 1) ? player1.transform : player2.transform;
+                if (snapCamera)
+                {
+                    cameraFollow.SnapToTarget();
+                }
+            }
+
+            CreateSwitchButton();
+        }
+        else
+        {
+            transform.position = state.position;
+            transform.rotation = state.rotation;
+            SetMainBlockActive(true);
+
+            CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
+            if (cameraFollow != null)
+            {
+                cameraFollow.target = transform;
+                if (snapCamera)
+                {
+                    cameraFollow.SnapToTarget();
+                }
+            }
+
+            DestroySwitchButton();
+        }
+
+        // Köprüleri eski haline getir
+        BridgeController[] bridges = FindObjectsOfType<BridgeController>();
+        foreach (var bridge in bridges)
+        {
+            foreach (var savedBridge in state.bridgeStates)
+            {
+                if (savedBridge.channel == bridge.channel)
+                {
+                    bridge.SetActiveState(savedBridge.isActive);
+                    break;
+                }
+            }
+        }
+    }
+
+    private IEnumerator RunSimulation()
+    {
+        isSimulating = true;
+
+        // Görselleri ve colliderları gizle
+        SetRenderersAndCollidersActive(false);
+
+        // Hızlandırılmış simülasyon ayarları
+        float originalTumblingDuration = tumblingDuration;
+        float originalTeleportStepDuration = teleportStepDuration;
+        tumblingDuration = 0.0001f;
+        teleportStepDuration = 0.0001f;
+
+        correctStateHistory.Clear();
+        correctStateHistory.Add(GetCurrentState());
+
+        LevelLoader loader = LevelLoader.Instance;
+        if (loader != null && loader.CurrentLevelData != null && !string.IsNullOrEmpty(loader.CurrentLevelData.hintMoves))
+        {
+            string[] moves = loader.CurrentLevelData.hintMoves.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string move in moves)
+            {
+                Vector3 dir = ParseMove(move);
+                if (dir != Vector3.zero)
+                {
+                    if (isSplit)
+                        StartCoroutine(Tumble1x1(dir));
+                    else
+                        StartCoroutine(Tumble(dir));
+
+                    // Hareketin bitmesini bekle
+                    yield return new WaitForSeconds(0.005f);
+                    while (IsMoving) yield return null;
+
+                    correctStateHistory.Add(GetCurrentState());
+                }
+            }
+        }
+
+        // Değerleri geri yükle
+        tumblingDuration = originalTumblingDuration;
+        teleportStepDuration = originalTeleportStepDuration;
+        isSimulating = false;
+
+        // Sahneyi temiz bir şekilde yeniden yükle
+        simulatedWorld = loader.worldIndex;
+        simulatedLevel = loader.levelIndex;
+        loader.LoadLevel(loader.worldIndex, loader.levelIndex);
+    }
+
+    private void SetRenderersAndCollidersActive(bool active)
+    {
+        foreach (var r in GetComponentsInChildren<Renderer>(true)) r.enabled = active;
+        foreach (var c in GetComponentsInChildren<Collider>(true)) c.enabled = active;
+    }
+
+    public IEnumerator MatchAndRewind(System.Action<int> onComplete)
+    {
+        // Eğer oyuncu henüz hiç hareket etmediyse doğrudan 0. adımdan başla (geri sarma yok)
+        if (playerStateHistory.Count <= 1 || correctStateHistory.Count == 0)
+        {
+            if (correctStateHistory.Count > 0)
+            {
+                playerStateHistory.Clear();
+                playerStateHistory.Add(correctStateHistory[0]);
+            }
+            onComplete?.Invoke(0);
+            yield break;
+        }
+
+        int matchCorrectIndex = 0;
+        int matchPlayerIndex = 0;
+        bool foundMatch = false;
+
+        // Tersten başlayarak oyuncunun geçtiği yolları doğru yol ile karşılaştır
+        for (int i = playerStateHistory.Count - 1; i >= 0; i--)
+        {
+            BlockState playerState = playerStateHistory[i];
+
+            for (int j = correctStateHistory.Count - 1; j >= 0; j--)
+            {
+                BlockState correctState = correctStateHistory[j];
+
+                if (StatesMatch(playerState, correctState))
+                {
+                    matchCorrectIndex = j;
+                    matchPlayerIndex = i;
+                    foundMatch = true;
+                    break;
+                }
+            }
+            if (foundMatch) break;
+        }
+
+        if (!foundMatch)
+        {
+            // Hiçbir çakışma bulunamazsa doğrudan başlangıca ışınla
+            if (correctStateHistory.Count > 0)
+            {
+                RestoreState(correctStateHistory[0], true);
+                playerStateHistory.Clear();
+                playerStateHistory.Add(correctStateHistory[0]);
+            }
+            onComplete?.Invoke(0);
+            yield break;
+        }
+
+        // Eğer zaten doğru konumdaysak doğrudan başla (geri sarma animasyonuna gerek yok)
+        if (matchPlayerIndex == playerStateHistory.Count - 1)
+        {
+            onComplete?.Invoke(matchCorrectIndex);
+            yield break;
+        }
+
+        // Geri sarma animasyonunu oynat
+        yield return StartCoroutine(RewindSequence(matchPlayerIndex, correctStateHistory[matchCorrectIndex]));
+
+        onComplete?.Invoke(matchCorrectIndex);
+    }
+
+    private IEnumerator RewindSequence(int matchPlayerHistoryIndex, BlockState targetCorrectState)
+    {
+        isTumbling = true; // Geri sararken girdi engellemesi ve hareket kilidi koy
+
+        // Her geri sarma adımı için sabit 0.4 saniye süre (kamera sarsıntısını önlemek için)
+        float stepDuration = 0.4f;
+
+        for (int k = playerStateHistory.Count - 1; k > matchPlayerHistoryIndex; k--)
+        {
+            BlockState fromState = playerStateHistory[k];
+            BlockState toState = playerStateHistory[k - 1];
+
+            // Her adımda hafif bir tık sesi çalınabilir
+            PlaySound(tumbleSound);
+
+            yield return StartCoroutine(TransitionBetweenStates(fromState, toState, stepDuration));
+        }
+
+        // En son hedef durumu tamamen geri yükle (switchler ve köprüler dahil, kamerayı hedefe sabitleyerek)
+        RestoreState(targetCorrectState, true);
+
+        // Oyuncunun geçmişini çakıştığı adıma kadar kırp
+        playerStateHistory.RemoveRange(matchPlayerHistoryIndex + 1, playerStateHistory.Count - (matchPlayerHistoryIndex + 1));
+
+        isTumbling = false;
+    }
+
+    private IEnumerator TransitionBetweenStates(BlockState fromState, BlockState toState, float duration)
+    {
+        // Eğer split durumu değiştiyse (örn. birleşme veya ayrılma olduysa) ani geçiş yap
+        if (fromState.isSplit != toState.isSplit)
+        {
+            RestoreState(toState, false);
+            yield return new WaitForSeconds(duration);
+            yield break;
+        }
+
+        // Görsel yapıyı hedef duruma göre hazırla (konumları henüz eşitlemeden, kamerayı sabitlemeden)
+        RestoreState(toState, false);
+
+        // Ancak geçici olarak başlangıç konumlarına yerleştir
+        if (toState.isSplit)
+        {
+            if (player1 != null)
+            {
+                player1.transform.position = fromState.p1Position;
+                player1.transform.rotation = fromState.p1Rotation;
+            }
+            if (player2 != null)
+            {
+                player2.transform.position = fromState.p2Position;
+                player2.transform.rotation = fromState.p2Rotation;
+            }
+        }
+        else
+        {
+            transform.position = fromState.position;
+            transform.rotation = fromState.rotation;
+        }
+
+        // Yumuşak Lerp ile hedef konuma kaydır
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+
+            if (toState.isSplit)
+            {
+                if (player1 != null)
+                {
+                    player1.transform.position = Vector3.Lerp(fromState.p1Position, toState.p1Position, t);
+                    player1.transform.rotation = Quaternion.Slerp(fromState.p1Rotation, toState.p1Rotation, t);
+                }
+                if (player2 != null)
+                {
+                    player2.transform.position = Vector3.Lerp(fromState.p2Position, toState.p2Position, t);
+                    player2.transform.rotation = Quaternion.Slerp(fromState.p2Rotation, toState.p2Rotation, t);
+                }
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(fromState.position, toState.position, t);
+                transform.rotation = Quaternion.Slerp(fromState.rotation, toState.rotation, t);
+            }
+            yield return null;
+        }
+
+        // Son konuma tam eşitle
+        if (toState.isSplit)
+        {
+            if (player1 != null) player1.transform.position = toState.p1Position;
+            if (player2 != null) player2.transform.position = toState.p2Position;
+        }
+        else
+        {
+            transform.position = toState.position;
+            transform.rotation = toState.rotation;
+        }
+    }
+
+    private bool StatesMatch(BlockState a, BlockState b)
+    {
+        // X ve Z koordinatları yakın mı kontrol et (aynı hücre)
+        float flatDist = Vector2.Distance(new Vector2(a.position.x, a.position.z), new Vector2(b.position.x, b.position.z));
+        bool isSameTile = flatDist < 0.1f;
+
+        if (Vector3.Distance(a.position, b.position) > 0.1f)
+        {
+            if (isSameTile)
+            {
+                Debug.LogWarning($"[StatesMatch] Aynı hücre ama Y konumu farklı! a.y: {a.position.y}, b.y: {b.position.y}");
+            }
+            return false;
+        }
+
+        if (a.isSplit != b.isSplit)
+        {
+            if (isSameTile)
+            {
+                Debug.LogWarning($"[StatesMatch] Aynı hücre ama split durumları farklı! a.isSplit: {a.isSplit}, b.isSplit: {b.isSplit}");
+            }
+            return false;
+        }
+
+        if (a.isSplit)
+        {
+            if (Vector3.Distance(a.p1Position, b.p1Position) > 0.1f || Vector3.Distance(a.p2Position, b.p2Position) > 0.1f)
+            {
+                if (isSameTile)
+                {
+                    Debug.LogWarning($"[StatesMatch] Aynı hücre ama split parça konumları farklı!");
+                }
+                return false;
+            }
+        }
+        else
+        {
+            // Tek parça 1x2x1 blok kendi boyuna ekseninde simetriktir.
+            // Bu nedenle 180 derecelik yön farkları veya kendi eksenindeki dönüşler fonksiyonel olarak farksızdır.
+            // Sadece boyuna eksenin (local Up) dünya eksenindeki doğrultusunun çakışıp çakışmadığına (Dot product) bakıyoruz.
+            Vector3 aUp = a.rotation * Vector3.up;
+            Vector3 bUp = b.rotation * Vector3.up;
+            float axisDot = Mathf.Abs(Vector3.Dot(aUp, bUp));
+
+            if (axisDot < 0.95f)
+            {
+                if (isSameTile)
+                {
+                    Debug.LogWarning($"[StatesMatch] Aynı hücre ama oryantasyon farklı! Eksen doğrultu Dot farkı: {axisDot}");
+                }
+                return false;
+            }
+        }
+
+        // Köprü durumlarını karşılaştır
+        if (a.bridgeStates == null || b.bridgeStates == null) return false;
+        if (a.bridgeStates.Count != b.bridgeStates.Count)
+        {
+            if (isSameTile)
+            {
+                Debug.LogWarning($"[StatesMatch] Aynı hücre ama köprü sayıları uyuşmuyor! a: {a.bridgeStates.Count}, b: {b.bridgeStates.Count}");
+            }
+            return false;
+        }
+
+        foreach (var bridgeA in a.bridgeStates)
+        {
+            bool matchedBridge = false;
+            foreach (var bridgeB in b.bridgeStates)
+            {
+                if (bridgeB.channel == bridgeA.channel)
+                {
+                    if (bridgeB.isActive != bridgeA.isActive)
+                    {
+                        if (isSameTile)
+                        {
+                            Debug.LogWarning($"[StatesMatch] Aynı hücre ama Kanal {bridgeA.channel} köprü durumları uyuşmuyor! a: {bridgeA.isActive}, b: {bridgeB.isActive}");
+                        }
+                        return false;
+                    }
+                    matchedBridge = true;
+                    break;
+                }
+            }
+            if (!matchedBridge) return false;
+        }
+
+        return true;
+    }
+
+    private static Vector3 ParseMove(string move)
+    {
+        switch (move.ToUpper())
+        {
+            case "F": return Vector3.forward;
+            case "B": return Vector3.back;
+            case "L": return Vector3.left;
+            case "R": return Vector3.right;
+            default: return Vector3.zero;
         }
     }
 

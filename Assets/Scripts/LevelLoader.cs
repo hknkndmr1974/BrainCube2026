@@ -527,8 +527,8 @@ public class LevelLoader : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        // Don't execute during build or project saves when not playing
-        if (UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode && !Application.isPlaying)
+        // Don't execute if not playing to prevent Editor GUI System crashes
+        if (!Application.isPlaying)
             return;
 
         UnityEditor.EditorApplication.delayCall -= OnValidateLoad;
@@ -537,7 +537,7 @@ public class LevelLoader : MonoBehaviour
 
     private void OnValidateLoad()
     {
-        if (this == null) return;
+        if (this == null || !Application.isPlaying) return;
         LoadLevel(worldIndex, levelIndex);
     }
 #endif

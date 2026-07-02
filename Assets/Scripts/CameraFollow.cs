@@ -46,6 +46,7 @@ public class CameraFollow : MonoBehaviour
     private void LateUpdate()
     {
         if (target == null) return;
+        if (TumbleController.isSimulating) return;
 
         if (!initialized)
         {
