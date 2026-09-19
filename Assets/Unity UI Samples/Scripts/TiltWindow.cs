@@ -16,7 +16,19 @@ public class TiltWindow : MonoBehaviour
 
 	void Update ()
 	{
-		Vector3 pos = Input.mousePosition;
+		Vector3 pos = Vector3.zero;
+#if ENABLE_INPUT_SYSTEM
+		if (UnityEngine.InputSystem.Mouse.current != null)
+		{
+			pos = UnityEngine.InputSystem.Mouse.current.position.ReadValue();
+		}
+		else if (UnityEngine.InputSystem.Touchscreen.current != null && UnityEngine.InputSystem.Touchscreen.current.primaryTouch.press.isPressed)
+		{
+			pos = UnityEngine.InputSystem.Touchscreen.current.primaryTouch.position.ReadValue();
+		}
+#else
+		pos = Input.mousePosition;
+#endif
 
 		float halfWidth = Screen.width * 0.5f;
 		float halfHeight = Screen.height * 0.5f;
