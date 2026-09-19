@@ -41,8 +41,13 @@ public class LevelLoader : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    public static int SelectedWorld = 1;
+    public static int SelectedLevel = 1;
+
     private void Start()
     {
+        worldIndex = SelectedWorld;
+        levelIndex = SelectedLevel;
         LoadLevel(worldIndex, levelIndex);
     }
 
@@ -56,6 +61,11 @@ public class LevelLoader : MonoBehaviour
     {
         worldIndex = world;
         levelIndex = level;
+
+        // Son oynanan seviyeyi PlayerPrefs'e kaydet
+        PlayerPrefs.SetInt("SavedWorld", world);
+        PlayerPrefs.SetInt("SavedLevel", level);
+        PlayerPrefs.Save();
 
         ClearLevel();
 
@@ -464,6 +474,11 @@ public class LevelLoader : MonoBehaviour
             playerInstance.AddComponent<TumbleController>();
         }
 
+        if (playerInstance != null && CubeThemeManager.Instance != null)
+        {
+            CubeThemeManager.Instance.ApplyTo(playerInstance);
+        }
+
         // Find CameraFollow in the scene and assign its follow target
         CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
         if (cameraFollow != null)
@@ -501,6 +516,34 @@ public class LevelLoader : MonoBehaviour
             else
             {
                 DestroyImmediate(p);
+            }
+        }
+
+        // Atomize animasyonu yarıda kesilirse root'ta kalan parçacıkları temizle
+        CleanupOrphanAtomParticles();
+    }
+
+    private static void CleanupOrphanAtomParticles()
+    {
+        // Sadece sahnedeki root objeleri tara (oyuncuya parent edilenler zaten Destroy(player) ile gider)
+        for (int i = 0; i < UnityEngine.SceneManagement.SceneManager.sceneCount; i++)
+        {
+            var scene = UnityEngine.SceneManagement.SceneManager.GetSceneAt(i);
+            if (!scene.isLoaded) continue;
+
+            GameObject[] roots = scene.GetRootGameObjects();
+            for (int r = 0; r < roots.Length; r++)
+            {
+                GameObject go = roots[r];
+                if (go == null) continue;
+
+                string n = go.name;
+                if (n != "StartAtomParticle" && n != "AtomParticle" &&
+                    n != "StartWarpLight" && n != "WarpGlowLight")
+                    continue;
+
+                if (Application.isPlaying) Destroy(go);
+                else DestroyImmediate(go);
             }
         }
     }

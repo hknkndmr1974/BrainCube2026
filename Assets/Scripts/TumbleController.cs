@@ -4,9 +4,49 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using FlexibleGlassDestructor;
 
+[System.Serializable]
+public struct BridgeState
+{
+    public int channel;
+    public bool isActive;
+}
+
+[System.Serializable]
+public struct BlockState
+{
+    public Vector3 position;
+    public Quaternion rotation;
+    public bool isSplit;
+    public Vector3 p1Position;
+    public Quaternion p1Rotation;
+    public Vector3 p2Position;
+    public Quaternion p2Rotation;
+    public int activeSplitPlayer;
+    public System.Collections.Generic.List<BridgeState> bridgeStates;
+}
+
 public class TumbleController : MonoBehaviour
 {
+    public enum WinAnimationType
+    {
+        RocketUp,  // Tek parça dönerek yukarı fırlama
+        SplitWarp, // İki parçaya ayrılıp ters yönlerde dönerek yukarı fırlama
+        Atomize    // Bilim kurgu ışınlanması gibi atomlarına ayrılıp yukarı uçma
+    }
+
+    private class AtomInfo
+    {
+        public GameObject go;
+        public Vector3 startPos;
+        public float startThreshold;
+        public float speed;
+    }
+
+    [Header("Victory Settings")]
+    public WinAnimationType winAnimation = WinAnimationType.RocketUp;
+
     public float tumblingDuration = 0.3f;
+    private float baseTumblingDuration = -1f;
     
     [Header("Sounds")]
     public AudioClip tumbleSound;
@@ -38,32 +78,56 @@ public class TumbleController : MonoBehaviour
     private const string PrefKeyDur  = "TeleportStepDuration";
 
     // ─── Durum Geçmişi ve Simülasyon Değişkenleri ──────────
-    [System.Serializable]
-    public struct BridgeState
-    {
-        public int channel;
-        public bool isActive;
-    }
-
-    [System.Serializable]
-    public struct BlockState
-    {
-        public Vector3 position;
-        public Quaternion rotation;
-        public bool isSplit;
-        public Vector3 p1Position;
-        public Quaternion p1Rotation;
-        public Vector3 p2Position;
-        public Quaternion p2Rotation;
-        public int activeSplitPlayer;
-        public System.Collections.Generic.List<BridgeState> bridgeStates;
-    }
-
     public static bool isSimulating = false;
     public static int simulatedWorld = -1;
     public static int simulatedLevel = -1;
     public static System.Collections.Generic.List<BlockState> correctStateHistory = new System.Collections.Generic.List<BlockState>();
     public System.Collections.Generic.List<BlockState> playerStateHistory = new System.Collections.Generic.List<BlockState>();
+
+    [Header("Decorative / Menu")]
+    [Tooltip("False ise klavye/swipe input'u yok sayılır (menü botları için).")]
+    public bool acceptPlayerInput = true;
+    [Tooltip("Menü arka planı: düşüşte level restart yok, spawn'a döner; ses/win kapalı.")]
+    public bool decorativeMode = false;
+
+    private Vector3 decorativeSpawnPos;
+    private Quaternion decorativeSpawnRot = Quaternion.identity;
+
+    private void Awake()
+    {
+        CaptureBaseTumblingDuration();
+        ApplyMoveSpeedFromSettings();
+    }
+
+    private void OnEnable()
+    {
+        GameplaySettings.SettingsChanged += ApplyMoveSpeedFromSettings;
+    }
+
+    private void OnDisable()
+    {
+        GameplaySettings.SettingsChanged -= ApplyMoveSpeedFromSettings;
+    }
+
+    private void CaptureBaseTumblingDuration()
+    {
+        if (baseTumblingDuration < 0f)
+        {
+            baseTumblingDuration = tumblingDuration > 0f ? tumblingDuration : 0.3f;
+        }
+    }
+
+    private void ApplyMoveSpeedFromSettings()
+    {
+        if (decorativeMode)
+        {
+            return;
+        }
+
+        CaptureBaseTumblingDuration();
+        float multiplier = GameplaySettings.MoveSpeedMultiplier;
+        tumblingDuration = baseTumblingDuration / Mathf.Max(0.01f, multiplier);
+    }
 
     private void Start()
     {
@@ -79,6 +143,15 @@ public class TumbleController : MonoBehaviour
         if (PlayerPrefs.HasKey(PrefKeyDur))
             teleportStepDuration = PlayerPrefs.GetFloat(PrefKeyDur);
 
+        if (decorativeMode)
+        {
+            playerStateHistory.Clear();
+            playerStateHistory.Add(GetCurrentState());
+            return;
+        }
+
+        ApplyMoveSpeedFromSettings();
+
         // Yeni bir level yüklendiyse simülasyon kilitlerini temizle
         if (LevelLoader.Instance != null && 
             (LevelLoader.Instance.worldIndex != simulatedWorld || LevelLoader.Instance.levelIndex != simulatedLevel))
@@ -86,8 +159,27 @@ public class TumbleController : MonoBehaviour
             isSimulating = false;
         }
 
-        // Simülasyonu başlat
-        if (!isSimulating && LevelLoader.Instance != null &&
+        // Eğer seviye zaten fırınlanmış veriye sahipse simülasyonu çalıştırma, veriyi doğrudan yükle!
+        if (LevelLoader.Instance != null && LevelLoader.Instance.CurrentLevelData != null && 
+            LevelLoader.Instance.CurrentLevelData.correctStates != null && LevelLoader.Instance.CurrentLevelData.correctStates.Count > 0)
+        {
+            correctStateHistory = new System.Collections.Generic.List<BlockState>(LevelLoader.Instance.CurrentLevelData.correctStates);
+            isSimulating = false;
+            simulatedWorld = LevelLoader.Instance.worldIndex;
+            simulatedLevel = LevelLoader.Instance.levelIndex;
+
+            // Oyuncu geçmişini temizle ve başlangıç durumunu ekle
+            playerStateHistory.Clear();
+            playerStateHistory.Add(GetCurrentState());
+
+            // Başlangıç animasyonunu oynat (Eğer Atomize seçildiyse)
+            if (winAnimation == WinAnimationType.Atomize)
+            {
+                StartCoroutine(StartLevelAnimation());
+            }
+        }
+        // Simülasyonu başlat (fırınlanmamışsa)
+        else if (!isSimulating && LevelLoader.Instance != null &&
             (LevelLoader.Instance.worldIndex != simulatedWorld || LevelLoader.Instance.levelIndex != simulatedLevel))
         {
             StartCoroutine(RunSimulation());
@@ -101,6 +193,15 @@ public class TumbleController : MonoBehaviour
         }
     }
 
+    /// <summary>Main menu dekoratif küp: input kapalı, düşüşte respawn.</summary>
+    public void ConfigureDecorative(Vector3 spawnPosition, Quaternion spawnRotation)
+    {
+        decorativeMode = true;
+        acceptPlayerInput = false;
+        decorativeSpawnPos = spawnPosition;
+        decorativeSpawnRot = spawnRotation;
+    }
+
     private void OnValidate()
     {
         // Inspector'da değer değiştirildiğinde otomatik kaydet
@@ -112,6 +213,7 @@ public class TumbleController : MonoBehaviour
     // ─── Dış Erişim (HintController için) ─────────────────
     /// <summary>Küp şu an hareket ediyorsa true döner.</summary>
     public bool IsMoving => isTumbling || playerFell;
+    public int CurrentMoveCount { get; private set; }
 
     /// <summary>
     /// Dışarıdan (HintController) hamle tetiklemek için çağrılır.
@@ -119,7 +221,13 @@ public class TumbleController : MonoBehaviour
     /// </summary>
     public bool TryMoveExternal(Vector3 direction)
     {
+        if (!decorativeMode && GameUIController.Instance != null && GameUIController.Instance.BlocksGameplay)
+        {
+            return false;
+        }
+
         if (isTumbling || playerFell) return false;
+        CurrentMoveCount++;
         if (isSplit)
             StartCoroutine(Tumble1x1(direction));
         else
@@ -160,6 +268,13 @@ public class TumbleController : MonoBehaviour
     private void Update()
     {
         if (isSimulating) return;
+        if (!acceptPlayerInput) return;
+
+        if (GameUIController.Instance != null && GameUIController.Instance.BlocksGameplay)
+        {
+            isSwiping = false;
+            return;
+        }
 
         if (isSplit && !isTumbling && !playerFell)
         {
@@ -308,6 +423,7 @@ public class TumbleController : MonoBehaviour
             HintController hc = FindObjectOfType<HintController>();
             if (hc != null) hc.ResetHintState();
 
+            CurrentMoveCount++;
             if (isSplit)
             {
                 StartCoroutine(Tumble1x1(direction));
@@ -322,7 +438,7 @@ public class TumbleController : MonoBehaviour
     private void SwitchActiveSplitPlayer()
     {
         activeSplitPlayer = (activeSplitPlayer == 1) ? 2 : 1;
-        PlaySound(tumbleSound);
+        PlaySound(AudioEventId.PlayerSwitch, null);
         
         CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
         if (cameraFollow != null)
@@ -383,6 +499,7 @@ public class TumbleController : MonoBehaviour
         image.color = new Color(0.12f, 0.12f, 0.16f, 0.85f);
 
         UnityEngine.UI.Button button = switchButtonObj.AddComponent<UnityEngine.UI.Button>();
+        switchButtonObj.AddComponent<UIAudioFeedback>();
         button.onClick.AddListener(() => {
             if (!isTumbling && isSplit)
             {
@@ -440,15 +557,33 @@ public class TumbleController : MonoBehaviour
     private void OnDestroy()
     {
         DestroySwitchButton();
+        // Sadece bu oyuncunun ürettiği atomları sil — sahnedeki tüm StartAtomParticle'lara
+        // dokunma; yoksa Restart'ta yeni animasyon aynı karede başlamış atomlar da gider.
+        DestroyTrackedAtomParticles();
+    }
+
+    private readonly System.Collections.Generic.List<GameObject> trackedAtomParticles =
+        new System.Collections.Generic.List<GameObject>();
+
+    private void TrackAtomParticle(GameObject go)
+    {
+        if (go != null) trackedAtomParticles.Add(go);
+    }
+
+    private void DestroyTrackedAtomParticles()
+    {
+        for (int i = 0; i < trackedAtomParticles.Count; i++)
+        {
+            if (trackedAtomParticles[i] != null)
+                Destroy(trackedAtomParticles[i]);
+        }
+        trackedAtomParticles.Clear();
     }
 
     private IEnumerator Tumble(Vector3 direction)
     {
         isTumbling = true;
         lastMoveDir = direction;
-
-        // Play tumble sound
-        PlaySound(tumbleSound);
 
         // Calculate heights and extents based on block orientation dynamically using local scale
         float verticalExtent = transform.localScale.x * 0.5f; // half of thickness
@@ -485,6 +620,11 @@ public class TumbleController : MonoBehaviour
         }
 
         SnapToGrid();
+        // Ses, hareket sonrası dik/yatık dinlenme zemine göre çalınır.
+        if (HasFullGroundSupport(transform))
+        {
+            PlayCubeMoveSound(transform);
+        }
         CheckIfFell();
 
         // Konveyör tile tetiklediyse kayarak ilerle (devrilme değil)
@@ -508,6 +648,7 @@ public class TumbleController : MonoBehaviour
     {
         isTumbling = true;
         lastMoveDir = direction;
+        PlaySound(AudioEventId.Conveyor, null);
 
         Vector3 startPos = transform.position;
         Vector3 endPos   = startPos + direction * 1f; // 1 hücre ilerle
@@ -709,7 +850,7 @@ public class TumbleController : MonoBehaviour
         string appearToken = "a" + token.Substring(1);
         // Find the corresponding AppearTile object
         GameObject appearTile = null;
-        foreach (var obj in GameObject.FindObjectsOfType<GameObject>())
+        foreach (var obj in GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None))
         {
             if (obj.name.StartsWith("AppearTile_" + appearToken))
             {
@@ -738,7 +879,7 @@ public class TumbleController : MonoBehaviour
         isTumbling = true;
         playerFell = true;
 
-        PlaySound(gameOverSound);
+        PlaySound(AudioEventId.GameOver, gameOverSound);
 
         // Tip 30 degrees around the edge before falling
         Vector3 pivot = pivotPos + fallDir * 0.5f - Vector3.up * 0.5f;
@@ -779,7 +920,12 @@ public class TumbleController : MonoBehaviour
             rb.AddTorque(rotAxis * 2f, ForceMode.VelocityChange);
         }
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(decorativeMode ? 0.85f : 2.0f);
+        if (decorativeMode)
+        {
+            RespawnDecorative();
+            yield break;
+        }
         if (isSimulating)
         {
             Debug.LogError($"[RunSimulation] Küp simülasyon sirasinda düstü! Sonsuz döngüyü önlemek için simülasyon kapatiliyor. World: {LevelLoader.Instance.worldIndex}, Level: {LevelLoader.Instance.levelIndex}");
@@ -795,7 +941,7 @@ public class TumbleController : MonoBehaviour
         isTumbling = true;
         playerFell = true;
 
-        PlaySound(gameOverSound);
+        PlaySound(AudioEventId.GameOver, gameOverSound);
 
         Vector3 rotAxis = customRotAxis;
         if (rotAxis == Vector3.zero)
@@ -838,7 +984,12 @@ public class TumbleController : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(decorativeMode ? 0.85f : 2.0f);
+        if (decorativeMode)
+        {
+            RespawnDecorative();
+            yield break;
+        }
         if (isSimulating)
         {
             Debug.LogError($"[RunSimulation] Küp simülasyon sirasinda düstü! Sonsuz döngüyü önlemek için simülasyon kapatiliyor. World: {LevelLoader.Instance.worldIndex}, Level: {LevelLoader.Instance.levelIndex}");
@@ -849,29 +1000,313 @@ public class TumbleController : MonoBehaviour
         RestartLevel();
     }
 
+    private void RespawnDecorative()
+    {
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.useGravity = false;
+            rb.isKinematic = true;
+        }
+
+        transform.SetPositionAndRotation(decorativeSpawnPos, decorativeSpawnRot);
+        SnapToGrid();
+        playerFell = false;
+        isTumbling = false;
+        pendingConveyorDir = Vector3.zero;
+        isTeleporting = false;
+    }
+
     private IEnumerator WinLevel()
     {
-        if (isSimulating) yield break;
+        if (isSimulating || decorativeMode) yield break;
 
         isTumbling = true;
         playerFell = true;
 
-        PlaySound(winSound);
+        PlaySound(AudioEventId.LevelComplete, winSound);
 
-        // Rocket/fall-in exit animation
-        Vector3 targetPos = transform.position - Vector3.up * 2f;
-        float elapsed = 0f;
-        while (elapsed < 1.0f)
+        Vector3 startPos = transform.position;
+
+        // Kamera takibini durdur (küp havaya uçarken kamera sabit kalsın)
+        CameraFollow cameraFollow = FindObjectsByType<CameraFollow>(FindObjectsSortMode.None)?[0];
+        if (cameraFollow != null)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPos, elapsed);
-            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, elapsed);
-            elapsed += Time.deltaTime * 3f;
-            yield return null;
+            cameraFollow.target = null;
         }
 
-        // Load next level
-        if (LevelLoader.Instance != null)
+        // Geçici bir parıltı ışığı (Point Light) oluştur
+        GameObject lightObj = new GameObject("WarpGlowLight");
+        lightObj.transform.SetParent(transform); // Oyuncu yok edildiğinde otomatik temizlensin
+        lightObj.transform.position = startPos + Vector3.up * 0.5f;
+        Light glowLight = lightObj.AddComponent<Light>();
+        glowLight.type = LightType.Point;
+        glowLight.color = new Color(0.18f, 0.65f, 1f); // Neon Mavi
+        glowLight.range = 8f;
+        glowLight.shadows = LightShadows.None;
+
+        float duration = 1.4f; // Animasyon süresi
+        float elapsed = 0f;
+        float maxSpinSpeed = 1350f; // Maksimum spin hızı
+
+        if (winAnimation == WinAnimationType.RocketUp)
         {
+            Vector3 targetPos = startPos + Vector3.up * 14f; // Ekrandan çıkacak kadar yüksek
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / duration;
+                
+                // Kübik Ease-In ivmelenmesi
+                float easeInT = t * t * t;
+
+                // Pozisyon yükselmesi
+                transform.position = Vector3.Lerp(startPos, targetPos, easeInT);
+
+                // Dönüş hızı ivmelenmesi
+                float currentSpinSpeed = Mathf.Lerp(180f, maxSpinSpeed, t);
+                transform.Rotate(Vector3.up, currentSpinSpeed * Time.deltaTime, Space.World);
+
+                // Işık parlama/sönme dalgalanması
+                if (t < 0.3f)
+                    glowLight.intensity = Mathf.Lerp(0f, 15f, t / 0.3f);
+                else
+                    glowLight.intensity = Mathf.Lerp(15f, 0f, (t - 0.3f) / 0.7f);
+
+                yield return null;
+            }
+        }
+        else if (winAnimation == WinAnimationType.SplitWarp) // SplitWarp: Küpü dikey olarak ikiye bölüp zıt yönlerde fırlatmak
+        {
+            // Ana küp görsellerini ve collider'larını gizle
+            SetRenderersAndCollidersActive(false);
+
+            // Alt ve Üst yarı küplerin başlangıç pozisyonları
+            Vector3 pos1 = startPos - Vector3.up * 0.45f;
+            Vector3 pos2 = startPos + Vector3.up * 0.45f;
+
+            // 1x1 küp oluşturucularla geçici küpleri oluştur
+            GameObject part1 = Create1x1Block(pos1, "WinPart1");
+            GameObject part2 = Create1x1Block(pos2, "WinPart2");
+
+            // Parçaların hedefleri (Yükselirken biri sola, biri sağa kavislenir)
+            Vector3 targetPos1 = pos1 + Vector3.up * 14f + Vector3.left * 1.8f;
+            Vector3 targetPos2 = pos2 + Vector3.up * 14f + Vector3.right * 1.8f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / duration;
+                float easeInT = t * t * t;
+
+                // Parça 1 (Alt): Yukarı ve Sola uçar, Pozitif yönde döner
+                if (part1 != null)
+                {
+                    part1.transform.position = Vector3.Lerp(pos1, targetPos1, easeInT);
+                    float currentSpin = Mathf.Lerp(180f, maxSpinSpeed, t);
+                    part1.transform.Rotate(Vector3.up, currentSpin * Time.deltaTime, Space.World);
+                }
+
+                // Parça 2 (Üst): Yukarı ve Sağa uçar, Negatif (ters) yönde döner
+                if (part2 != null)
+                {
+                    part2.transform.position = Vector3.Lerp(pos2, targetPos2, easeInT);
+                    float currentSpin = Mathf.Lerp(180f, maxSpinSpeed, t);
+                    part2.transform.Rotate(Vector3.up, -currentSpin * Time.deltaTime, Space.World);
+                }
+
+                // Işık parlama/sönme dalgalanması
+                if (t < 0.3f)
+                    glowLight.intensity = Mathf.Lerp(0f, 15f, t / 0.3f);
+                else
+                    glowLight.intensity = Mathf.Lerp(15f, 0f, (t - 0.3f) / 0.7f);
+
+                yield return null;
+            }
+
+            // Temizlik: Geçici parçaları yok et
+            if (part1 != null) Destroy(part1);
+            if (part2 != null) Destroy(part2);
+
+            // Ana küpü tekrar görünür yap (sahne geçişi temiz olsun)
+            SetRenderersAndCollidersActive(true);
+        }
+        else // Atomize: Bilim kurgu ışınlanması gibi atomlarına ayrılıp yukarı uçma
+        {
+            // Oyuncunun materyalini gizlemeden önce referans al
+            Renderer mainRenderer = GetComponentInChildren<Renderer>();
+            Material playerMat = mainRenderer != null ? mainRenderer.sharedMaterial : null;
+
+            // Ana küp görsellerini ve collider'larını gizle
+            SetRenderersAndCollidersActive(false);
+
+            // Sütun ve yükseklik parametreleri (3x3 sütun düzeninde, her sütunda 6 katman var)
+            int countX = 3;
+            int countY = 6;
+            int countZ = 3;
+
+            // Parçaların başlangıçta boşluksuz bir bütün oluşturması için tam boyut hesabı
+            float sx = 1.0f / countX;
+            float sy = 1.0f / countY; // Unity standart Cube mesh'inin yerel boyutu 1.0f'dir, ölçekleme originalScale ile yapılır
+            float sz = 1.0f / countZ;
+
+            Vector3 originalScale = transform.localScale;
+            Vector3 atomScale = new Vector3(sx * originalScale.x, sy * originalScale.y, sz * originalScale.z);
+
+            // 9 sütunu temsil eden listeler (3x3 = 9)
+            System.Collections.Generic.List<AtomInfo>[] columns = new System.Collections.Generic.List<AtomInfo>[9];
+            for (int i = 0; i < 9; i++)
+            {
+                columns[i] = new System.Collections.Generic.List<AtomInfo>();
+            }
+
+            for (int x = 0; x < countX; x++)
+            {
+                for (int y = 0; y < countY; y++)
+                {
+                    for (int z = 0; z < countZ; z++)
+                    {
+                        // Pozisyonları 1x1x1 yerel hacmine boşluksuz yerleşecek şekilde hesapla
+                        float px = -0.5f + (x + 0.5f) * sx;
+                        float py = -0.5f + (y + 0.5f) * sy; // py aralığı yerel mesh sınırları olan -0.5 ile 0.5 arasındadır
+                        float pz = -0.5f + (z + 0.5f) * sz;
+
+                        Vector3 localPos = new Vector3(px, py, pz);
+                        Vector3 worldPos = transform.TransformPoint(localPos);
+
+                        GameObject atom = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                        atom.name = "AtomParticle";
+                        TrackAtomParticle(atom);
+                        atom.transform.position = worldPos;
+                        atom.transform.rotation = transform.rotation; // Ana küpün rotasyonunu birebir koru
+                        atom.transform.localScale = atomScale; // Tam birleşen boyutlar
+
+                        // Fizik çakışmasını önlemek için collider'ı hemen yok et
+                        Collider c = atom.GetComponent<Collider>();
+                        if (c != null) Destroy(c);
+
+                        // Blok materyalini ata
+                        if (playerMat != null)
+                        {
+                            atom.GetComponent<Renderer>().material = playerMat;
+                        }
+
+                        // Atom verisini oluştur
+                        AtomInfo info = new AtomInfo();
+                        info.go = atom;
+                        info.startPos = worldPos;
+
+                        // Sütun index'i: x * 3 + z (0 ile 8 arası)
+                        int colIndex = x * 3 + z;
+                        columns[colIndex].Add(info);
+                    }
+                }
+            }
+
+            // Düzleştirilmiş tüm atom verileri listesi
+            System.Collections.Generic.List<AtomInfo> allAtoms = new System.Collections.Generic.List<AtomInfo>();
+
+            // --- SÜTUN BAZLI DÜNYA Y SIRALAMASI VE GEÇİŞ ZAMANLAMASI ---
+            for (int colIndex = 0; colIndex < 9; colIndex++)
+            {
+                var column = columns[colIndex];
+                
+                // Sütundaki atomları dünya Y eksenine göre yukarıdan aşağıya (descending) sırala
+                column.Sort((a, b) => b.startPos.y.CompareTo(a.startPos.y));
+
+                // Her sütun için rastgele bir kalkış başlangıç gecikmesi (0 ile 0.22s arası)
+                // Bu gecikme, sütunların birbirinden farklı zamanlarda çözünmeye başlamasını sağlar.
+                float columnStartDelay = UnityEngine.Random.Range(0f, 0.22f);
+
+                for (int j = 0; j < column.Count; j++)
+                {
+                    AtomInfo info = column[j];
+                    
+                    // Sütun içindeki dikey sıralamaya göre kalkış eşiği:
+                    // Üstteki atom havalandıktan çok kısa bir süre sonra (0.08s gecikmeyle) altındaki atom tetiklenir.
+                    // Böylece alttaki katman, tüm üst katmanın bitmesini beklemeden kendi kolonunda akmaya başlar!
+                    info.startThreshold = columnStartDelay + (j * 0.08f);
+
+                    // Yükseklik sırasına göre hız ivme çarpanı
+                    // Üstteki parçacıklar daha hızlı havalanarak aradaki mesafeyi açar
+                    float speedMultiplier = 1.6f - (j * 0.12f);
+                    info.speed = UnityEngine.Random.Range(2.2f, 3.2f) * speedMultiplier;
+
+                    allAtoms.Add(info);
+                }
+            }
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / duration;
+
+                // Tüm atomları hareket ettir ve küçült
+                for (int i = 0; i < allAtoms.Count; i++)
+                {
+                    AtomInfo info = allAtoms[i];
+                    if (info.go == null) continue;
+
+                    // Sırası gelmeyen atomlar başlangıç pozisyonunda (yani ana blok bütününde) sabit bekler
+                    if (t < info.startThreshold)
+                    {
+                        info.go.transform.position = info.startPos;
+                    }
+                    else
+                    {
+                        // Bu parça için etkin süreci saniye cinsinden hesapla
+                        float activeTime = elapsed - (info.startThreshold * duration);
+                        
+                        // Fiziksel ivmelenme formülü: d = v0 * t + 0.5 * a * t^2
+                        float v0 = info.speed; // başlangıç hızı
+                        float a = 12f;         // yukarı çekim ivmesi
+                        float yOffset = v0 * activeTime + 0.5f * a * activeTime * activeTime;
+
+                        // Dönme olmadan, doğrudan dikey yukarı doğru çekilme
+                        info.go.transform.position = info.startPos + Vector3.up * yOffset;
+
+                        // Bu parça için normalize edilmiş aktiflik süresi (0 ile 1 arası)
+                        float totalActiveTime = duration - (info.startThreshold * duration);
+                        float normalizedActiveT = totalActiveTime > 0.01f ? Mathf.Clamp01(activeTime / totalActiveTime) : 1f;
+
+                        // Yükselirken küçülerek çözünme (Dissolve) efekti
+                        info.go.transform.localScale = Vector3.Lerp(atomScale, Vector3.zero, normalizedActiveT);
+                    }
+                }
+
+                // Işık parlama/sönme dalgalanması
+                if (t < 0.3f)
+                    glowLight.intensity = Mathf.Lerp(0f, 15f, t / 0.3f);
+                else
+                    glowLight.intensity = Mathf.Lerp(15f, 0f, (t - 0.3f) / 0.7f);
+
+                yield return null;
+            }
+
+            // Animasyon bittiğinde tüm atomları yok et
+            foreach (var info in allAtoms)
+            {
+                if (info.go != null) Destroy(info.go);
+            }
+            trackedAtomParticles.Clear();
+
+            // Ana küpü tekrar görünür yap
+            SetRenderersAndCollidersActive(true);
+        }
+
+        // Genel temizlik
+        Destroy(lightObj);
+
+        // Level sonu menüsünü aç; sonraki levele oyuncu karar verir.
+        if (GameUIController.Instance != null)
+        {
+            GameUIController.Instance.ShowLevelComplete();
+        }
+        else if (LevelLoader.Instance != null)
+        {
+            // Menü yoksa eski otomatik geçişe düş.
             int nextLevel = LevelLoader.Instance.levelIndex + 1;
             if (nextLevel <= 20)
             {
@@ -880,17 +1315,176 @@ public class TumbleController : MonoBehaviour
             else
             {
                 int nextWorld = LevelLoader.Instance.worldIndex + 1;
-                if (nextWorld <= 10)
+                if (nextWorld <= 15)
                 {
                     LevelLoader.Instance.LoadLevel(nextWorld, 1);
                 }
                 else
                 {
-                    Debug.Log("Congratulations! All levels beaten!");
                     LevelLoader.Instance.LoadLevel(1, 1);
                 }
             }
         }
+    }
+
+    private System.Collections.IEnumerator StartLevelAnimation()
+    {
+        // Işınlanma animasyonu boyunca oyuncu hareket edemesin
+        isTumbling = true; 
+
+        // Oyuncunun materyalini ve collider/renderer durumunu sakla
+        Renderer mainRenderer = GetComponentInChildren<Renderer>();
+        Material playerMat = mainRenderer != null ? mainRenderer.sharedMaterial : null;
+
+        SetRenderersAndCollidersActive(false);
+
+        float duration = 1.4f;
+        float elapsed = 0f;
+
+        int countX = 3;
+        int countY = 6;
+        int countZ = 3;
+
+        float sx = 1.0f / countX;
+        float sy = 1.0f / countY;
+        float sz = 1.0f / countZ;
+
+        Vector3 originalScale = transform.localScale;
+        Vector3 atomScale = new Vector3(sx * originalScale.x, sy * originalScale.y, sz * originalScale.z);
+
+        System.Collections.Generic.List<AtomInfo>[] columns = new System.Collections.Generic.List<AtomInfo>[9];
+        for (int i = 0; i < 9; i++)
+        {
+            columns[i] = new System.Collections.Generic.List<AtomInfo>();
+        }
+
+        // Atomları başlangıç (hedef) pozisyonlarında yarat
+        for (int x = 0; x < countX; x++)
+        {
+            for (int y = 0; y < countY; y++)
+            {
+                for (int z = 0; z < countZ; z++)
+                {
+                    float px = -0.5f + (x + 0.5f) * sx;
+                    float py = -0.5f + (y + 0.5f) * sy;
+                    float pz = -0.5f + (z + 0.5f) * sz;
+
+                    Vector3 localPos = new Vector3(px, py, pz);
+                    Vector3 worldPos = transform.TransformPoint(localPos);
+
+                    GameObject atom = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    atom.name = "StartAtomParticle";
+                    TrackAtomParticle(atom);
+                    
+                    // Gökyüzünde görünmez olarak başlat
+                    atom.transform.position = worldPos + Vector3.up * 14f;
+                    atom.transform.rotation = transform.rotation;
+                    atom.transform.localScale = Vector3.zero;
+
+                    Collider c = atom.GetComponent<Collider>();
+                    if (c != null) Destroy(c);
+
+                    if (playerMat != null)
+                    {
+                        atom.GetComponent<Renderer>().material = playerMat;
+                    }
+
+                    AtomInfo info = new AtomInfo();
+                    info.go = atom;
+                    info.startPos = worldPos; // Hedef pozisyonu
+
+                    int colIndex = x * 3 + z;
+                    columns[colIndex].Add(info);
+                }
+            }
+        }
+
+        System.Collections.Generic.List<AtomInfo> allAtoms = new System.Collections.Generic.List<AtomInfo>();
+
+        // Her sütunu dünya Y eksenine göre aşağıdan yukarıya (ascending) sırala (Bölüm başında alttan üste birleşecek)
+        for (int colIndex = 0; colIndex < 9; colIndex++)
+        {
+            var column = columns[colIndex];
+            column.Sort((a, b) => a.startPos.y.CompareTo(b.startPos.y));
+
+            float columnStartDelay = UnityEngine.Random.Range(0f, 0.22f);
+
+            for (int j = 0; j < column.Count; j++)
+            {
+                AtomInfo info = column[j];
+                // Sırayla gelme: Alttaki atom en erken gelir, üstteki en son gelir
+                info.startThreshold = columnStartDelay + (j * 0.08f);
+                
+                float speedMultiplier = 1.0f + (j * 0.12f);
+                info.speed = UnityEngine.Random.Range(2.2f, 3.2f) * speedMultiplier;
+
+                allAtoms.Add(info);
+            }
+        }
+
+        // Işık oluştur (Glow efekti)
+        GameObject lightObj = new GameObject("StartWarpLight");
+        lightObj.transform.SetParent(transform); // Oyuncu yok edildiğinde otomatik temizlensin
+        Light glowLight = lightObj.AddComponent<Light>();
+        glowLight.type = LightType.Point;
+        glowLight.color = new Color(0f, 0.8f, 1f); // Neon sci-fi ışığı
+        glowLight.range = 7f;
+        glowLight.intensity = 0f;
+        lightObj.transform.position = transform.position + Vector3.up * 0.5f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            for (int i = 0; i < allAtoms.Count; i++)
+            {
+                AtomInfo info = allAtoms[i];
+                if (info.go == null) continue;
+
+                if (t < info.startThreshold)
+                {
+                    // Sırası gelmeyenler gökyüzünde görünmez bekler
+                    info.go.transform.position = info.startPos + Vector3.up * 14f;
+                    info.go.transform.localScale = Vector3.zero;
+                }
+                else
+                {
+                    float totalActiveTime = duration - (info.startThreshold * duration);
+                    float activeTime = elapsed - (info.startThreshold * duration);
+                    float normalizedActiveT = totalActiveTime > 0.01f ? Mathf.Clamp01(activeTime / totalActiveTime) : 1f;
+
+                    // Kübik Ease-Out (Gökten gelip yavaşça yatağa oturma)
+                    float easeOutT = 1f - Mathf.Pow(1f - normalizedActiveT, 3f);
+
+                    Vector3 skyPos = info.startPos + Vector3.up * 14f;
+                    info.go.transform.position = Vector3.Lerp(skyPos, info.startPos, easeOutT);
+                    info.go.transform.localScale = Vector3.Lerp(Vector3.zero, atomScale, normalizedActiveT);
+                }
+            }
+
+            // Işık parlama/sönme dalgalanması (Warp etkisi)
+            if (t < 0.4f)
+                glowLight.intensity = Mathf.Lerp(0f, 15f, t / 0.4f);
+            else
+                glowLight.intensity = Mathf.Lerp(15f, 0f, (t - 0.4f) / 0.6f);
+
+            yield return null;
+        }
+
+        // Temizlik
+        foreach (var info in allAtoms)
+        {
+            if (info.go != null) Destroy(info.go);
+        }
+        trackedAtomParticles.Clear();
+
+        Destroy(lightObj);
+
+        // Ana küpü tekrar görünür yap
+        SetRenderersAndCollidersActive(true);
+        
+        isTumbling = false; // Oyuncunun hareket kilidini aç
     }
 
     private GameObject GetActivePlayer()
@@ -902,6 +1496,7 @@ public class TumbleController : MonoBehaviour
     {
         isSplit = true;
         activeSplitPlayer = 1;
+        PlaySound(AudioEventId.Split, null);
 
         // Create player1 and player2 GameObjects
         player1 = Create1x1Block(pos1, "SplitPlayer1");
@@ -999,6 +1594,11 @@ public class TumbleController : MonoBehaviour
             foreach (var c in block.GetComponentsInChildren<Collider>(true)) c.enabled = false;
         }
 
+        if (CubeThemeManager.Instance != null)
+        {
+            CubeThemeManager.Instance.ApplyTo(block);
+        }
+
         return block;
     }
 
@@ -1034,8 +1634,6 @@ public class TumbleController : MonoBehaviour
         isTumbling = true;
         lastMoveDir = direction;
 
-        PlaySound(tumbleSound);
-
         GameObject activePlayer = GetActivePlayer();
         float verticalExtent = activePlayer.transform.localScale.y * 0.5f;
         float rollExtent = 0.5f;
@@ -1060,6 +1658,10 @@ public class TumbleController : MonoBehaviour
         }
 
         SnapToGrid1x1(activePlayer);
+        if (HasTileAt(activePlayer.transform.position))
+        {
+            PlayCubeMoveSound(activePlayer.transform);
+        }
         CheckIfFell1x1();
 
         if (!playerFell)
@@ -1143,7 +1745,7 @@ public class TumbleController : MonoBehaviour
         playerFell = true;
         DestroySwitchButton();
 
-        PlaySound(gameOverSound);
+        PlaySound(AudioEventId.GameOver, gameOverSound);
 
         Rigidbody fallingRb = fallingPlayer.GetComponent<Rigidbody>();
         if (fallingRb != null)
@@ -1224,7 +1826,7 @@ public class TumbleController : MonoBehaviour
             token = "m";
         }
 
-        var allObjs = GameObject.FindObjectsOfType<GameObject>();
+        var allObjs = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         var matchingObjs = new System.Collections.Generic.List<GameObject>();
         foreach (var obj in allObjs)
         {
@@ -1283,6 +1885,7 @@ public class TumbleController : MonoBehaviour
     {
         isTeleporting = true;
         isTumbling = true; // Teleport animasyonu boyunca girdi ve hareket sistemlerini kilitle
+        PlaySound(AudioEventId.Teleport, null);
 
         // Preserve original scale
         Vector3 originalScale = transform.localScale;
@@ -1341,25 +1944,135 @@ public class TumbleController : MonoBehaviour
         }
     }
 
-    private void PlaySound(AudioClip clip)
+    private void PlaySound(AudioEventId eventId, AudioClip fallbackClip)
     {
-        // Simülasyon sırasında sesleri çalma
-        if (isSimulating) return;
+        // Simülasyon / menü dekorunda sesleri çalma
+        if (isSimulating || decorativeMode) return;
 
-        if (clip != null)
+        if (AudioManager.Instance != null)
         {
-            AudioSource.PlayClipAtPoint(clip, transform.position);
+            AudioManager.Instance.PlayEvent(eventId, transform.position, fallbackClip);
         }
+        else if (fallbackClip != null)
+        {
+            AudioSource.PlayClipAtPoint(fallbackClip, transform.position);
+        }
+    }
+
+    private void PlayCubeMoveSound(Transform mover)
+    {
+        AudioEventId eventId = IsOnGlassSurface(mover)
+            ? AudioEventId.CubeMoveGlass
+            : AudioEventId.CubeMove;
+
+        // Cam hareket sesi atanmamışsa normal hareket sesine düş.
+        if (eventId == AudioEventId.CubeMoveGlass &&
+            AudioManager.Instance?.EventLibrary?.cubeMoveGlass?.clip == null)
+        {
+            eventId = AudioEventId.CubeMove;
+        }
+
+        PlaySound(eventId, tumbleSound);
+    }
+
+    /// <summary>
+    /// Küpün hareket sonrası dik veya yatık olarak temas ettiği zemine bakar.
+    /// Yatıkken her iki destek noktası da kontrol edilir.
+    /// </summary>
+    private bool IsOnGlassSurface(Transform mover)
+    {
+        if (mover == null)
+        {
+            return false;
+        }
+
+        bool isStanding = Mathf.Abs(Vector3.Dot(mover.up, Vector3.up)) > 0.9f;
+        if (isStanding)
+        {
+            return IsGlassAt(mover.position);
+        }
+
+        // Yatık 1x2: uzun eksenin iki ucu zemine basar.
+        Vector3 longAxisDir = mover.up;
+        longAxisDir.y = 0f;
+        if (longAxisDir.sqrMagnitude < 0.001f)
+        {
+            return IsGlassAt(mover.position);
+        }
+
+        longAxisDir.Normalize();
+        bool end1Glass = IsGlassAt(mover.position + longAxisDir * 0.5f);
+        bool end2Glass = IsGlassAt(mover.position - longAxisDir * 0.5f);
+        return end1Glass || end2Glass;
+    }
+
+    private static bool HasFullGroundSupport(Transform mover)
+    {
+        if (mover == null)
+        {
+            return false;
+        }
+
+        bool isStanding = Mathf.Abs(Vector3.Dot(mover.up, Vector3.up)) > 0.9f;
+        if (isStanding)
+        {
+            return HasTileAt(mover.position);
+        }
+
+        Vector3 longAxisDir = mover.up;
+        longAxisDir.y = 0f;
+        if (longAxisDir.sqrMagnitude < 0.001f)
+        {
+            return HasTileAt(mover.position);
+        }
+
+        longAxisDir.Normalize();
+        return HasTileAt(mover.position + longAxisDir * 0.5f) &&
+               HasTileAt(mover.position - longAxisDir * 0.5f);
+    }
+
+    private static bool HasTileAt(Vector3 position)
+    {
+        return TryGetTileAt(position, out _);
+    }
+
+    private static bool IsGlassAt(Vector3 position)
+    {
+        if (!TryGetTileAt(position, out Collider tileCollider))
+        {
+            return false;
+        }
+
+        return tileCollider.GetComponentInParent<FragileTile>() != null ||
+               tileCollider.GetComponentInParent<FlexibleGlass>() != null;
+    }
+
+    private static bool TryGetTileAt(Vector3 position, out Collider tileCollider)
+    {
+        Vector3 origin = new Vector3(position.x, 0.5f, position.z);
+        int layerMask = ~LayerMask.GetMask("Player");
+
+        if (Physics.Raycast(origin, Vector3.down, out RaycastHit hit, 1.5f, layerMask, QueryTriggerInteraction.Collide))
+        {
+            tileCollider = hit.collider;
+            return true;
+        }
+
+        tileCollider = null;
+        return false;
     }
 
     // ─── Durum Yönetim Metotları ─────────────────────
     public BlockState GetCurrentState()
     {
         BlockState state = new BlockState();
-        state.position = transform.position;
-        state.rotation = transform.rotation;
         state.isSplit = isSplit;
-        if (isSplit)
+        if (!isSplit)
+        {
+            state.position = transform.position;
+            state.rotation = transform.rotation;
+        }
+        else
         {
             if (player1 != null)
             {
@@ -1376,7 +2089,7 @@ public class TumbleController : MonoBehaviour
 
         // Köprüleri kaydet
         state.bridgeStates = new System.Collections.Generic.List<BridgeState>();
-        BridgeController[] bridges = FindObjectsOfType<BridgeController>();
+        BridgeController[] bridges = FindObjectsByType<BridgeController>(FindObjectsSortMode.None);
         foreach (var bridge in bridges)
         {
             state.bridgeStates.Add(new BridgeState {
@@ -1439,7 +2152,7 @@ public class TumbleController : MonoBehaviour
         }
 
         // Köprüleri eski haline getir
-        BridgeController[] bridges = FindObjectsOfType<BridgeController>();
+        BridgeController[] bridges = FindObjectsByType<BridgeController>(FindObjectsSortMode.None);
         foreach (var bridge in bridges)
         {
             foreach (var savedBridge in state.bridgeStates)
@@ -1496,6 +2209,25 @@ public class TumbleController : MonoBehaviour
         tumblingDuration = originalTumblingDuration;
         teleportStepDuration = originalTeleportStepDuration;
         isSimulating = false;
+
+        // Fırınlama (Bake) İşlemi: Yalnızca Editor modunda çalışır ve simüle edilen durumları JSON dosyasına yazar.
+#if UNITY_EDITOR
+        if (loader != null && loader.CurrentLevelData != null)
+        {
+            loader.CurrentLevelData.correctStates = new System.Collections.Generic.List<BlockState>(correctStateHistory);
+            string updatedJson = JsonUtility.ToJson(loader.CurrentLevelData, true);
+            string jsonPath = System.IO.Path.Combine(Application.dataPath, $"Resources/LevelsJSON/w{loader.worldIndex}l{loader.levelIndex}.json");
+            try
+            {
+                System.IO.File.WriteAllText(jsonPath, updatedJson);
+                Debug.Log($"<color=lime>[Auto-Baker]</color> Seviye {loader.worldIndex}-{loader.levelIndex} için durum geçmişi basariyla JSON'a fırınlandı!");
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"[Auto-Baker] JSON fırınlama hatası: {ex.Message}");
+            }
+        }
+#endif
 
         // Sahneyi temiz bir şekilde yeniden yükle
         simulatedWorld = loader.worldIndex;
@@ -1568,6 +2300,7 @@ public class TumbleController : MonoBehaviour
         }
 
         // Geri sarma animasyonunu oynat
+        PlaySound(AudioEventId.Undo, null);
         yield return StartCoroutine(RewindSequence(matchPlayerIndex, correctStateHistory[matchCorrectIndex]));
 
         onComplete?.Invoke(matchCorrectIndex);
@@ -1586,7 +2319,7 @@ public class TumbleController : MonoBehaviour
             BlockState toState = playerStateHistory[k - 1];
 
             // Her adımda hafif bir tık sesi çalınabilir
-            PlaySound(tumbleSound);
+            PlaySound(AudioEventId.CubeMove, tumbleSound);
 
             yield return StartCoroutine(TransitionBetweenStates(fromState, toState, stepDuration));
         }

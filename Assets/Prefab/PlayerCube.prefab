@@ -125,10 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83179d9ec1e14da4a9218a147c47d47a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TumbleController
+  winAnimation: 2
   tumblingDuration: 0.3
-  tumbleSound: {fileID: 0}
-  gameOverSound: {fileID: 0}
-  winSound: {fileID: 0}
+  tumbleSound: {fileID: 8300000, guid: d2e9e5bc406703f41830148236078166, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 23a4b0b6ef926024f85589d63fea43d8, type: 3}
+  winSound: {fileID: 8300000, guid: 45aea92f5f8b56749a12fca59eb358cf, type: 3}
   minSwipeDistance: 50
   isSplit: 0
   player1: {fileID: 0}
@@ -136,3 +137,4 @@ MonoBehaviour:
   activeSplitPlayer: 1
   teleportShrinkStep: 0.1
   teleportStepDuration: 0
+  playerStateHistory: []

@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4446e42a0ed9c5041b8739882e9bc851, type: 3}
+  m_Name: CubeThemeCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::CubeThemeCatalog
+  themes:
+  - displayName: Default
+    category: Metal
+    material: {fileID: 2100000, guid: 815726b91e0e2d34a84b7ddc790e5b86, type: 2}
+  - displayName: Metal 1
+    category: Metal
+    material: {fileID: 2100000, guid: d6e7475a477721949a7fa2353ffb7e32, type: 2}
+  - displayName: Metal 2
+    category: Metal
+    material: {fileID: 2100000, guid: d690ce46b58f6704caed1ffbff694459, type: 2}
+  - displayName: Metal 3
+    category: Metal
+    material: {fileID: 2100000, guid: 0e3ad63f883b06b458c1ef2d59167313, type: 2}
+  - displayName: Metal 4
+    category: Metal
+    material: {fileID: 2100000, guid: 579d167621596b0419dc2ebf58efe561, type: 2}
+  - displayName: Metal 5
+    category: Metal
+    material: {fileID: 2100000, guid: 9b8a78dbb8e688e468daf2da07cf93b6, type: 2}
+  - displayName: Metal 6
+    category: Metal
+    material: {fileID: 2100000, guid: 294b00804ed584d4ab6b6ea04153afdb, type: 2}
+  - displayName: Metal 7
+    category: Metal
+    material: {fileID: 2100000, guid: dd9f6c05ac7b21e4abd45bc51f3ce0af, type: 2}
+  - displayName: Wood1
+    category: Wood
+    material: {fileID: 2100000, guid: e20fae5a4472e48469ab68229b53bd6c, type: 2}
+  - displayName: Wood2
+    category: Wood
+    material: {fileID: 2100000, guid: 901d491d68de4614f94082da47053d79, type: 2}
+  - displayName: Wood3
+    category: Wood
+    material: {fileID: 2100000, guid: cf70886d3aefe7345be51883145b849e, type: 2}
+  - displayName: Wood4
+    category: Wood
+    material: {fileID: 2100000, guid: c72c18a65c5a3ed4ead4b1b025a1a5d8, type: 2}
+  - displayName: Wood5
+    category: Wood
+    material: {fileID: 2100000, guid: c74fd1bcdfc3dc548aa878748c2c73e3, type: 2}
+  - displayName: Wood6
+    category: Wood
+    material: {fileID: 2100000, guid: 5c0de40c69f48b14eb67d6190333581f, type: 2}
+  - displayName: Wood7
+    category: Wood
+    material: {fileID: 2100000, guid: 021258930332ad04593eb874627d5364, type: 2}
+  - displayName: Wood7
+    category: Wood
+    material: {fileID: 2100000, guid: 057523c35ac98894fa1692c16a6b2827, type: 2}
+  - displayName: Stone1
+    category: Stone
+    material: {fileID: 2100000, guid: b7efee39c51e1c94f9e535a8e6edb43b, type: 2}
+  - displayName: Stone2
+    category: Stone
+    material: {fileID: 2100000, guid: 3302d8980be2b5742b574a2509d9e6b7, type: 2}
+  - displayName: Stone3
+    category: Stone
+    material: {fileID: 2100000, guid: 29f48cc2a8ed8f448a8579bc2c980c38, type: 2}
+  - displayName: Stone4
+    category: Stone
+    material: {fileID: 2100000, guid: ffca86f74f18233469ebfedb1b9fc434, type: 2}
+  - displayName: Stone5
+    category: Stone
+    material: {fileID: 2100000, guid: d40e29484caa88c4891e1e09bf80ad8c, type: 2}
+  - displayName: Stone6
+    category: Stone
+    material: {fileID: 2100000, guid: 19384859089e5ee4f99e102652ee3484, type: 2}
+  - displayName: Stone7
+    category: Stone
+    material: {fileID: 2100000, guid: ad85a24c76e86cc45bd1040a4d583d90, type: 2}
+  - displayName: Stone8
+    category: Stone
+    material: {fileID: 2100000, guid: 1e23b2d236a58f040968acd05c361bce, type: 2}

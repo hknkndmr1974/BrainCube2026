@@ -640,7 +640,7 @@ namespace FlexibleGlassDestructor
                 this.WakeNeighbors(collision.contacts[0].point, calcDynamicRadius(force), impactVel);
 
                 // Sound
-                PlaySound(shatterSound, audioVolume);
+                PlaySound(AudioEventId.GlassShatter, shatterSound, audioVolume);
             }
         }
 
@@ -668,7 +668,7 @@ namespace FlexibleGlassDestructor
                 this.WakeNeighbors(hitPoint, calcDynamicRadius(force), impactVel);
 
                 // Sound
-                PlaySound(shatterSound, audioVolume);
+                PlaySound(AudioEventId.GlassShatter, shatterSound, audioVolume);
             }
         }
 
@@ -685,15 +685,31 @@ namespace FlexibleGlassDestructor
         /// Plays the specified audio clip with a randomized pitch to add auditory variety.
         /// </summary>
         /// <param name="clip">The AudioClip to be played.</param>
-        private void PlaySound(AudioClip clip,float volume)
+        private void PlaySound(AudioEventId eventId, AudioClip fallbackClip, float volume)
         {
-            if (clip == null || this.audioSource == null) return;
+            if (this.audioSource == null) return;
 
             // Apply random pitch variation to avoid repetitive sound patterns
-            this.audioSource.pitch = 1.0f + Random.Range(-this.pitchRandomness, this.pitchRandomness);
+            float pitch = 1.0f + Random.Range(-this.pitchRandomness, this.pitchRandomness);
+
+            // Keep simulations silent and route gameplay sound through the
+            // central service so master/SFX settings affect glass sounds.
+            if (TumbleController.isSimulating) return;
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayEvent(
+                    eventId,
+                    transform.position,
+                    fallbackClip,
+                    volume,
+                    this.pitchRandomness);
+                return;
+            }
 
             // PlayOneShot allows multiple sounds to overlap without cutting off the previous one
-            this.audioSource.PlayOneShot(clip, volume);
+            if (fallbackClip == null) return;
+            this.audioSource.pitch = pitch;
+            this.audioSource.PlayOneShot(fallbackClip, volume);
         }
 
         /// <summary>
@@ -738,7 +754,10 @@ namespace FlexibleGlassDestructor
             this.ShowCracks();
 
             // Play the subtle sound of glass fracturing
-            this.PlaySound(this.fractureSound, this.audioVolume);
+            this.PlaySound(
+                AudioEventId.GlassFracture,
+                this.fractureSound,
+                this.audioVolume);
         }
     }
 }

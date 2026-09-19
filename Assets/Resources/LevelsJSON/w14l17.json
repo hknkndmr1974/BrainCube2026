@@ -12,5 +12,54 @@
         "-  -  1  1  9  1  1",
         "-  -  -  -  1  1  -",
         "-  -  -  -  1  -  -"
+    ],
+    "correctStates": [
+        {
+            "position": {
+                "x": 4.0,
+                "y": 0.8999999761581421,
+                "z": -5.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                }
+            ]
+        }
     ]
 }

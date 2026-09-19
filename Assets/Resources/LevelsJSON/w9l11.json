@@ -14,5 +14,5421 @@
         "1  1  1  -  -  1  1  1  -  -  -  1  1  1  -",
         "1  1  h3 -  -  -  -  1  -  -  -  1  1  1  -",
         "1  1  1  -  -  -  -  t1 -  -  -  1  h2 1  -"
+    ],
+    "correctStates": [
+        {
+            "position": {
+                "x": 7.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 5.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 4.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 2.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 0.44999998807907107,
+                "z": -5.5
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 0.8999999761581421,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 1.0,
+                "y": -4.371138828673793e-8,
+                "z": -4.371138828673793e-8,
+                "w": 1.910685465164705e-15
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 0.44999998807907107,
+                "z": -8.5
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 2.0,
+                "y": 0.44999998807907107,
+                "z": -8.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 2.0,
+                "y": 0.8999999761581421,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": -0.7071068286895752,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 0.5,
+                "y": 0.44999998807907107,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 0.5,
+                "y": 0.44999998807907107,
+                "z": -8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": false
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 2.0,
+                "y": 0.8999999761581421,
+                "z": -8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 0.5,
+                "y": 0.44999998807907107,
+                "z": -8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 0.5,
+                "y": 0.44999998807907107,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 2.0,
+                "y": 0.8999999761581421,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": -0.7071068286895752,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 2.0,
+                "y": 0.44999998807907107,
+                "z": -8.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 0.44999998807907107,
+                "z": -8.5
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 0.8999999761581421,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 1.0,
+                "y": -4.371138828673793e-8,
+                "z": -4.371138828673793e-8,
+                "w": 1.910685465164705e-15
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 0.44999998807907107,
+                "z": -5.5
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 2.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 4.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 5.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.0,
+                "y": 0.44999998807907107,
+                "z": -5.5
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 8.0,
+                "y": 0.44999998807907107,
+                "z": -5.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 8.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 9.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 11.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": -0.7071068286895752,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 14.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 14.0,
+                "y": 0.44999998807907107,
+                "z": -2.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": 0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 14.0,
+                "y": 0.8999999761581421,
+                "z": -1.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": 0.7071068286895752,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.5,
+                "y": 0.44999998807907107,
+                "z": -1.0
+            },
+            "rotation": {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.5,
+                "y": 0.44999998807907107,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 14.0,
+                "y": 0.8999999761581421,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 14.0,
+                "y": 0.44999998807907107,
+                "z": -1.5
+            },
+            "rotation": {
+                "x": -3.090862321641907e-8,
+                "y": -0.7071068286895752,
+                "z": -0.7071068286895752,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.44999998807907107,
+                "z": -1.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": false
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.8999999761581421,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": -0.7071068286895752,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.44999998807907107,
+                "z": -1.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 14.0,
+                "y": 0.44999998807907107,
+                "z": -1.5
+            },
+            "rotation": {
+                "x": -3.090862321641907e-8,
+                "y": -0.7071068286895752,
+                "z": -0.7071068286895752,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 14.0,
+                "y": 0.8999999761581421,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.5,
+                "y": 0.44999998807907107,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.5,
+                "y": 0.44999998807907107,
+                "z": -1.0
+            },
+            "rotation": {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 14.0,
+                "y": 0.8999999761581421,
+                "z": -1.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": 0.7071068286895752,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 14.0,
+                "y": 0.44999998807907107,
+                "z": -2.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": 0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 14.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 11.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": -0.7071068286895752,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 9.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 8.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 8.0,
+                "y": 0.44999998807907107,
+                "z": -5.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.0,
+                "y": 0.44999998807907107,
+                "z": -5.5
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.0,
+                "y": 0.44999998807907107,
+                "z": -2.5
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 6.0,
+                "y": 0.44999998807907107,
+                "z": -2.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": 0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 6.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 9.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": -0.7071068286895752,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 10.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.44999998807907107,
+                "z": -5.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.8999999761581421,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": 0.7071068286895752,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.44999998807907107,
+                "z": -8.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": 0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.44999998807907107,
+                "z": -8.5
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.8999999761581421,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 1.0,
+                "y": -4.371138828673793e-8,
+                "z": -4.371138828673793e-8,
+                "w": 1.910685465164705e-15
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 11.5,
+                "y": 0.44999998807907107,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.7071068286895752,
+                "z": -3.090862321641907e-8,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 11.5,
+                "y": 0.44999998807907107,
+                "z": -8.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 11.5,
+                "y": 0.44999998807907107,
+                "z": -9.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.8999999761581421,
+                "z": -9.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.44999998807907107,
+                "z": -7.5
+            },
+            "rotation": {
+                "x": -3.090862321641907e-8,
+                "y": 0.7071068286895752,
+                "z": -0.7071068286895752,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.44999998807907107,
+                "z": -7.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": false
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.8999999761581421,
+                "z": -9.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": 0.7071068286895752,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.44999998807907107,
+                "z": -7.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.44999998807907107,
+                "z": -7.5
+            },
+            "rotation": {
+                "x": -3.090862321641907e-8,
+                "y": 0.7071068286895752,
+                "z": -0.7071068286895752,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.8999999761581421,
+                "z": -9.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 11.5,
+                "y": 0.44999998807907107,
+                "z": -9.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 11.5,
+                "y": 0.44999998807907107,
+                "z": -8.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 11.5,
+                "y": 0.44999998807907107,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.7071068286895752,
+                "z": -3.090862321641907e-8,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.8999999761581421,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 1.0,
+                "y": -4.371138828673793e-8,
+                "z": -4.371138828673793e-8,
+                "w": 1.910685465164705e-15
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 13.0,
+                "y": 0.44999998807907107,
+                "z": -8.5
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.44999998807907107,
+                "z": -8.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": 0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.8999999761581421,
+                "z": -7.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": 0.7071068286895752,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.44999998807907107,
+                "z": -5.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 12.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 10.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 9.0,
+                "y": 0.8999999761581421,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": -0.7071068286895752,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.5,
+                "y": 0.44999998807907107,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.5,
+                "y": 0.44999998807907107,
+                "z": -3.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.7071068286895752,
+                "z": -3.090862321641907e-8,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 6.0,
+                "y": 0.8999999761581421,
+                "z": -3.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 6.0,
+                "y": 0.44999998807907107,
+                "z": -4.5
+            },
+            "rotation": {
+                "x": -3.090862321641907e-8,
+                "y": 0.7071068286895752,
+                "z": -0.7071068286895752,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.0,
+                "y": 0.44999998807907107,
+                "z": -4.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": 0.5,
+                "z": -0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.0,
+                "y": 0.8999999761581421,
+                "z": -6.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -3.090862321641907e-8,
+                "z": -0.7071068286895752,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 7.0,
+                "y": 0.44999998807907107,
+                "z": -7.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 0.0,
+                "y": 0.8999999761581421,
+                "z": -1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.5,
+                "y": 0.44999998807907107,
+                "z": -1.0
+            },
+            "rotation": {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5,
+                "w": 0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.5,
+                "y": 0.44999998807907107,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.7071068286895752,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 0.0,
+                "y": 0.8999999761581421,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 0.0,
+                "y": 0.44999998807907107,
+                "z": -1.5
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 0.44999998807907107,
+                "z": -1.5
+            },
+            "rotation": {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 2.0,
+                "y": 0.44999998807907107,
+                "z": -1.5
+            },
+            "rotation": {
+                "x": -3.090862321641907e-8,
+                "y": 0.7071068286895752,
+                "z": -0.7071068286895752,
+                "w": -3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 2.0,
+                "y": 0.8999999761581421,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 0.5,
+                "y": 0.44999998807907107,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": -0.7071068286895752,
+                "z": -3.090862321641907e-8,
+                "w": 3.090862321641907e-8
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 0.5,
+                "y": 0.44999998807907107,
+                "z": -1.0
+            },
+            "rotation": {
+                "x": -0.5,
+                "y": 0.5,
+                "z": -0.5,
+                "w": -0.5
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        },
+        {
+            "position": {
+                "x": 2.0,
+                "y": 0.8999999761581421,
+                "z": -1.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": -0.7071068286895752
+            },
+            "isSplit": false,
+            "p1Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p1Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "p2Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "p2Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "activeSplitPlayer": 1,
+            "bridgeStates": [
+                {
+                    "channel": 1,
+                    "isActive": true
+                },
+                {
+                    "channel": 2,
+                    "isActive": true
+                },
+                {
+                    "channel": 3,
+                    "isActive": true
+                }
+            ]
+        }
     ]
 }

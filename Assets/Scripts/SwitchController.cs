@@ -29,27 +29,40 @@ public class SwitchController : MonoBehaviour
 
         isPressed = true;
         
-        // Play click sound
-        if (clickSound != null)
+        // Simülasyon sırasında ses üretme.
+        if (!TumbleController.isSimulating)
         {
-            AudioSource.PlayClipAtPoint(clickSound, transform.position);
-        }
-        else
-        {
-            // Try loading default door close sound from Resources if no sound set
-            AudioClip defaultSound = Resources.Load<AudioClip>("AudioClip/door-close");
-            if (defaultSound != null)
+            AudioClip sound = clickSound;
+            if (sound == null)
             {
-                AudioSource.PlayClipAtPoint(defaultSound, transform.position);
+                sound = Resources.Load<AudioClip>("AudioClip/door-close");
+            }
+
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayEvent(
+                    AudioEventId.SwitchActivated,
+                    transform.position,
+                    sound);
+            }
+            else if (sound != null)
+            {
+                AudioSource.PlayClipAtPoint(sound, transform.position);
             }
         }
 
         // Find all bridge controllers in the scene and update their states
-        BridgeController[] bridges = FindObjectsOfType<BridgeController>();
+        BridgeController[] bridges = FindObjectsByType<BridgeController>(FindObjectsSortMode.None);
+        bool bridgeChanged = false;
+        bool bridgeOpened = false;
+        Vector3 bridgeSoundPosition = transform.position;
+
         foreach (var bridge in bridges)
         {
             if (bridge.channel == this.channel)
             {
+                bool wasActive = bridge.IsActive();
+
                 if (switchType.EndsWith("o")) // "ho", "so" -> Open
                 {
                     bridge.SetActiveState(true);
@@ -62,7 +75,21 @@ public class SwitchController : MonoBehaviour
                 {
                     bridge.ToggleActive();
                 }
+
+                if (!bridgeChanged && wasActive != bridge.IsActive())
+                {
+                    bridgeChanged = true;
+                    bridgeOpened = bridge.IsActive();
+                    bridgeSoundPosition = bridge.transform.position;
+                }
             }
+        }
+
+        if (bridgeChanged && !TumbleController.isSimulating)
+        {
+            AudioManager.Instance?.PlayEvent(
+                bridgeOpened ? AudioEventId.BridgeOpen : AudioEventId.BridgeClose,
+                bridgeSoundPosition);
         }
 
         // Reset pressed flag after a short delay (or at start of next roll)
@@ -71,7 +98,8 @@ public class SwitchController : MonoBehaviour
 
     private System.Collections.IEnumerator ResetPress()
     {
-        yield return new WaitForSeconds(0.5f);
+        float delay = TumbleController.isSimulating ? 0.001f : 0.5f;
+        yield return new WaitForSeconds(delay);
         isPressed = false;
     }
 }

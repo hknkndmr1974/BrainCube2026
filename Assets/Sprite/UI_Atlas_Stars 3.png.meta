@@ -1,0 +1,427 @@
+fileFormatVersion: 2
+guid: 05891ec69a6102c43b13b7c846bea17b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_Atlas_Stars 3_4
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 804
+        width: 777
+        height: 998
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f4b1be1f8136e44fa9b920297c41721
+      internalID: 423046035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Stars 3_5
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 1069
+        width: 754
+        height: 740
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92507d8904309a546bbcb602a985ddbe
+      internalID: 561643681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Stars 3_7
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 1005
+        width: 760
+        height: 769
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61cf4472bd9fc5f4589a0ee834c3ea5a
+      internalID: -539931785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Stars 3_21
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1193
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7678a9b1786e41747939fce581119486
+      internalID: -1497853113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Stars 3_34
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 226
+        width: 750
+        height: 763
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b7114d8a56793e43bd0e76e209b076f
+      internalID: 56007726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Stars 3_39
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 244
+        width: 785
+        height: 739
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b9dd90d0d661543b1742e5be32062c
+      internalID: 470867129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Stars 3_46
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 293
+        width: 184
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26eb799ac25d25d4c967ff44ab2646d1
+      internalID: 576677344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Stars 3_48
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 278
+        width: 187
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6090f149ead5ac54686a79cf72d729c2
+      internalID: 1372284297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Stars 3_49
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 277
+        width: 168
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c14a79f88e820ab458ef177f3bac0735
+      internalID: -1502983602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 11ea8548c49d4154e897590500e864cf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      UI_Atlas_Stars 3_0: -1990961168
+      UI_Atlas_Stars 3_1: 1741720714
+      UI_Atlas_Stars 3_10: -827491273
+      UI_Atlas_Stars 3_11: -89427626
+      UI_Atlas_Stars 3_12: 2102911858
+      UI_Atlas_Stars 3_13: -1628183875
+      UI_Atlas_Stars 3_14: 501610060
+      UI_Atlas_Stars 3_15: 2101899115
+      UI_Atlas_Stars 3_16: 1523146156
+      UI_Atlas_Stars 3_17: 1971701298
+      UI_Atlas_Stars 3_18: 115356752
+      UI_Atlas_Stars 3_19: -1616074221
+      UI_Atlas_Stars 3_2: -1008083328
+      UI_Atlas_Stars 3_20: 1375351470
+      UI_Atlas_Stars 3_21: -1497853113
+      UI_Atlas_Stars 3_22: -2037292522
+      UI_Atlas_Stars 3_23: 630199700
+      UI_Atlas_Stars 3_24: 2019133950
+      UI_Atlas_Stars 3_25: -407584164
+      UI_Atlas_Stars 3_26: 1947691282
+      UI_Atlas_Stars 3_27: 785797527
+      UI_Atlas_Stars 3_28: -802458818
+      UI_Atlas_Stars 3_29: 1653733310
+      UI_Atlas_Stars 3_3: -936179518
+      UI_Atlas_Stars 3_30: 201687207
+      UI_Atlas_Stars 3_31: 1066110604
+      UI_Atlas_Stars 3_32: 132646432
+      UI_Atlas_Stars 3_33: -927078802
+      UI_Atlas_Stars 3_34: 56007726
+      UI_Atlas_Stars 3_35: 944896650
+      UI_Atlas_Stars 3_36: -1102531147
+      UI_Atlas_Stars 3_37: 745270001
+      UI_Atlas_Stars 3_38: 1465365474
+      UI_Atlas_Stars 3_39: 470867129
+      UI_Atlas_Stars 3_4: 423046035
+      UI_Atlas_Stars 3_40: -1133892262
+      UI_Atlas_Stars 3_41: -882891756
+      UI_Atlas_Stars 3_42: -921387639
+      UI_Atlas_Stars 3_43: 1785237220
+      UI_Atlas_Stars 3_44: -1490087592
+      UI_Atlas_Stars 3_45: 2101546487
+      UI_Atlas_Stars 3_46: 576677344
+      UI_Atlas_Stars 3_47: 1665861590
+      UI_Atlas_Stars 3_48: 1372284297
+      UI_Atlas_Stars 3_49: -1502983602
+      UI_Atlas_Stars 3_5: 561643681
+      UI_Atlas_Stars 3_50: -711582997
+      UI_Atlas_Stars 3_51: -283363143
+      UI_Atlas_Stars 3_52: -172964554
+      UI_Atlas_Stars 3_53: 1494211053
+      UI_Atlas_Stars 3_54: -521780307
+      UI_Atlas_Stars 3_55: 285871374
+      UI_Atlas_Stars 3_56: 2054613531
+      UI_Atlas_Stars 3_57: 851113968
+      UI_Atlas_Stars 3_58: 1934334504
+      UI_Atlas_Stars 3_59: 836572503
+      UI_Atlas_Stars 3_6: -1727076293
+      UI_Atlas_Stars 3_60: 1160599056
+      UI_Atlas_Stars 3_61: 1894668264
+      UI_Atlas_Stars 3_62: 257676240
+      UI_Atlas_Stars 3_63: 510244065
+      UI_Atlas_Stars 3_64: -1966765994
+      UI_Atlas_Stars 3_65: -641682215
+      UI_Atlas_Stars 3_66: -2055148423
+      UI_Atlas_Stars 3_67: 2031776549
+      UI_Atlas_Stars 3_68: 1347473766
+      UI_Atlas_Stars 3_69: 1751474372
+      UI_Atlas_Stars 3_7: -539931785
+      UI_Atlas_Stars 3_70: -1849254341
+      UI_Atlas_Stars 3_8: 1871481122
+      UI_Atlas_Stars 3_9: 731933890
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6df7aa10ab4ab8a383f523cfd406c4, type: 3}
+  m_Name: AudioEventLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::AudioEventLibrary
+  menuMusic:
+    clip: {fileID: 8300000, guid: ea88f719dbeb8a349b7ee0b057f65285, type: 3}
+    volume: 0.45
+    pitchVariation: 0
+  gameplayMusic:
+    clip: {fileID: 8300000, guid: b4faf1979ec89ac47981decb454b94ad, type: 3}
+    volume: 0.45
+    pitchVariation: 0
+  cubeMove:
+    clip: {fileID: 8300000, guid: ff1a203941a2d7e4591558d6e42d773d, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+  cubeMoveGlass:
+    clip: {fileID: 8300000, guid: 9eb879a2d68615e499ec6a5893c8fed3, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+  gameOver:
+    clip: {fileID: 8300000, guid: 23a4b0b6ef926024f85589d63fea43d8, type: 3}
+    volume: 1
+    pitchVariation: 0
+  levelComplete:
+    clip: {fileID: 8300000, guid: 290710ed23490464fb7f9dba375f453d, type: 3}
+    volume: 1
+    pitchVariation: 0
+  teleport:
+    clip: {fileID: 8300000, guid: 290710ed23490464fb7f9dba375f453d, type: 3}
+    volume: 1
+    pitchVariation: 0
+  split:
+    clip: {fileID: 8300000, guid: 962336fe10204af4ca23ebac02ce8ad8, type: 3}
+    volume: 1
+    pitchVariation: 0
+  playerSwitch:
+    clip: {fileID: 8300000, guid: 962336fe10204af4ca23ebac02ce8ad8, type: 3}
+    volume: 1
+    pitchVariation: 0
+  switchActivated:
+    clip: {fileID: 8300000, guid: 78808d45106bfb747843768e6a95e6ff, type: 3}
+    volume: 1
+    pitchVariation: 0
+  bridgeOpen:
+    clip: {fileID: 8300000, guid: 143794a46e19bd04ca80af5fa19c9456, type: 3}
+    volume: 1
+    pitchVariation: 0
+  bridgeClose:
+    clip: {fileID: 8300000, guid: 143794a46e19bd04ca80af5fa19c9456, type: 3}
+    volume: 1
+    pitchVariation: 0
+  conveyor:
+    clip: {fileID: 8300000, guid: b9f3092a52aced447b4799ed75f982ca, type: 3}
+    volume: 0.7
+    pitchVariation: 0.05
+  glassFracture:
+    clip: {fileID: 8300000, guid: 43dddb85bc4c9b848b746727fec483cb, type: 3}
+    volume: 1
+    pitchVariation: 0.2
+  glassShatter:
+    clip: {fileID: 8300000, guid: 9eb879a2d68615e499ec6a5893c8fed3, type: 3}
+    volume: 1
+    pitchVariation: 0.2
+  uiHover:
+    clip: {fileID: 0}
+    volume: 0.7
+    pitchVariation: 0
+  uiClick:
+    clip: {fileID: 8300000, guid: 962336fe10204af4ca23ebac02ce8ad8, type: 3}
+    volume: 0.8
+    pitchVariation: 0
+  menuTransition:
+    clip: {fileID: 0}
+    volume: 0.8
+    pitchVariation: 0
+  restart:
+    clip: {fileID: 0}
+    volume: 1
+    pitchVariation: 0
+  hint:
+    clip: {fileID: 0}
+    volume: 1
+    pitchVariation: 0
+  undo:
+    clip: {fileID: 0}
+    volume: 1
+    pitchVariation: 0
