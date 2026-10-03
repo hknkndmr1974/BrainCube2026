@@ -9,6 +9,10 @@ public class CubeThemeEntry
     public string category = "General";
     [Tooltip("Boş bırakılırsa küpün orijinal (Default) material'i kullanılır.")]
     public Material material;
+    [Tooltip("Boş bırakılırsa küpün orijinal mesh'i kullanılır (ör. yuvarlak köşeli küp için RoundedCube).")]
+    public Mesh mesh;
+    [Tooltip("Boş bırakılırsa zemin karoları orijinal malzemeleriyle kalır.")]
+    public TileSkin tileSkin;
 }
 
 /// <summary>
@@ -22,6 +26,9 @@ public class CubeThemeCatalog : ScriptableObject
     {
         new CubeThemeEntry { displayName = "Default", category = "Wood", material = null }
     };
+
+    [Tooltip("Oyuncu henüz tema seçmediyse kullanılan tema (themes dizisi indeksi).")]
+    public int defaultThemeIndex;
 
     public int Count => themes != null ? themes.Length : 0;
 

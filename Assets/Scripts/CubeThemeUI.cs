@@ -31,6 +31,7 @@ public sealed class CubeThemeUI : MonoBehaviour
     private GameObject previewCube;
     private MeshRenderer previewRenderer;
     private Material[] previewOriginalMaterials;
+    private Mesh previewOriginalMesh;
     private Coroutine visibilityRoutine;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -87,7 +88,7 @@ public sealed class CubeThemeUI : MonoBehaviour
         }
 
         BindExistingCategoryTabs();
-        activeCategory = "Metal";
+        activeCategory = SelectedCategoryOr("Metal");
         ApplyCategoryVisibility();
         ApplyPreviewMaterial();
         RefreshStatus();
@@ -296,6 +297,9 @@ public sealed class CubeThemeUI : MonoBehaviour
         {
             return;
         }
+
+        MeshFilter filter = previewRenderer.GetComponent<MeshFilter>();
+        previewOriginalMesh = filter != null ? filter.sharedMesh : null;
 
         Material[] shared = previewRenderer.sharedMaterials;
         previewOriginalMaterials = new Material[shared.Length];
@@ -529,7 +533,14 @@ public sealed class CubeThemeUI : MonoBehaviour
             return;
         }
 
-        Material selected = CubeThemeManager.Instance.GetSelectedMaterial();
+        CubeThemeEntry entry = CubeThemeManager.Instance.GetSelectedEntry();
+        MeshFilter filter = previewRenderer.GetComponent<MeshFilter>();
+        if (filter != null)
+        {
+            filter.sharedMesh = entry.mesh != null ? entry.mesh : previewOriginalMesh;
+        }
+
+        Material selected = entry.material;
         if (selected == null)
         {
             if (previewOriginalMaterials != null && previewOriginalMaterials.Length > 0)
@@ -547,6 +558,12 @@ public sealed class CubeThemeUI : MonoBehaviour
 
             previewRenderer.sharedMaterials = mats;
         }
+    }
+
+    private static string SelectedCategoryOr(string fallback)
+    {
+        CubeThemeEntry entry = CubeThemeManager.Instance != null ? CubeThemeManager.Instance.GetSelectedEntry() : null;
+        return entry != null && !string.IsNullOrWhiteSpace(entry.category) ? entry.category.Trim() : fallback;
     }
 
     private void RefreshStatus()

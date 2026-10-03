@@ -16,72 +16,161 @@ MonoBehaviour:
   - displayName: Default
     category: Metal
     material: {fileID: 2100000, guid: 815726b91e0e2d34a84b7ddc790e5b86, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Metal 1
     category: Metal
     material: {fileID: 2100000, guid: d6e7475a477721949a7fa2353ffb7e32, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Metal 2
     category: Metal
     material: {fileID: 2100000, guid: d690ce46b58f6704caed1ffbff694459, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Metal 3
     category: Metal
     material: {fileID: 2100000, guid: 0e3ad63f883b06b458c1ef2d59167313, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Metal 4
     category: Metal
     material: {fileID: 2100000, guid: 579d167621596b0419dc2ebf58efe561, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Metal 5
     category: Metal
     material: {fileID: 2100000, guid: 9b8a78dbb8e688e468daf2da07cf93b6, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Metal 6
     category: Metal
     material: {fileID: 2100000, guid: 294b00804ed584d4ab6b6ea04153afdb, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Metal 7
     category: Metal
     material: {fileID: 2100000, guid: dd9f6c05ac7b21e4abd45bc51f3ce0af, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Wood1
     category: Wood
     material: {fileID: 2100000, guid: e20fae5a4472e48469ab68229b53bd6c, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Wood2
     category: Wood
     material: {fileID: 2100000, guid: 901d491d68de4614f94082da47053d79, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Wood3
     category: Wood
     material: {fileID: 2100000, guid: cf70886d3aefe7345be51883145b849e, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Wood4
     category: Wood
     material: {fileID: 2100000, guid: c72c18a65c5a3ed4ead4b1b025a1a5d8, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Wood5
     category: Wood
     material: {fileID: 2100000, guid: c74fd1bcdfc3dc548aa878748c2c73e3, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Wood6
     category: Wood
     material: {fileID: 2100000, guid: 5c0de40c69f48b14eb67d6190333581f, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Wood7
     category: Wood
     material: {fileID: 2100000, guid: 021258930332ad04593eb874627d5364, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Wood7
     category: Wood
     material: {fileID: 2100000, guid: 057523c35ac98894fa1692c16a6b2827, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Stone1
     category: Stone
     material: {fileID: 2100000, guid: b7efee39c51e1c94f9e535a8e6edb43b, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Stone2
     category: Stone
     material: {fileID: 2100000, guid: 3302d8980be2b5742b574a2509d9e6b7, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Stone3
     category: Stone
     material: {fileID: 2100000, guid: 29f48cc2a8ed8f448a8579bc2c980c38, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Stone4
     category: Stone
     material: {fileID: 2100000, guid: ffca86f74f18233469ebfedb1b9fc434, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Stone5
     category: Stone
     material: {fileID: 2100000, guid: d40e29484caa88c4891e1e09bf80ad8c, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Stone6
     category: Stone
     material: {fileID: 2100000, guid: 19384859089e5ee4f99e102652ee3484, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Stone7
     category: Stone
     material: {fileID: 2100000, guid: ad85a24c76e86cc45bd1040a4d583d90, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
   - displayName: Stone8
     category: Stone
     material: {fileID: 2100000, guid: 1e23b2d236a58f040968acd05c361bce, type: 2}
+    mesh: {fileID: 0}
+    tileSkin: {fileID: 0}
+  - displayName: Coral
+    category: Pastel
+    material: {fileID: 2100000, guid: d42dac890921397449979eb89531951f, type: 2}
+    mesh: {fileID: 4300000, guid: d3808ef268b5efa44922cc7ad9d97606, type: 2}
+    tileSkin: {fileID: 11400000, guid: 0bb678b1de91b124f8929f4c5693879b, type: 2}
+  - displayName: Peach
+    category: Pastel
+    material: {fileID: 2100000, guid: df35c0115ed91804f86a4a0b4fff005d, type: 2}
+    mesh: {fileID: 4300000, guid: d3808ef268b5efa44922cc7ad9d97606, type: 2}
+    tileSkin: {fileID: 11400000, guid: 0bb678b1de91b124f8929f4c5693879b, type: 2}
+  - displayName: Butter
+    category: Pastel
+    material: {fileID: 2100000, guid: ff42cb601f855464e8e16add996565e7, type: 2}
+    mesh: {fileID: 4300000, guid: d3808ef268b5efa44922cc7ad9d97606, type: 2}
+    tileSkin: {fileID: 11400000, guid: 0bb678b1de91b124f8929f4c5693879b, type: 2}
+  - displayName: Mint
+    category: Pastel
+    material: {fileID: 2100000, guid: 13b59a951f99d904ebe40925242ec3e9, type: 2}
+    mesh: {fileID: 4300000, guid: d3808ef268b5efa44922cc7ad9d97606, type: 2}
+    tileSkin: {fileID: 11400000, guid: 0bb678b1de91b124f8929f4c5693879b, type: 2}
+  - displayName: Sky
+    category: Pastel
+    material: {fileID: 2100000, guid: 4df48721158a72d44bbe8543600ced8d, type: 2}
+    mesh: {fileID: 4300000, guid: d3808ef268b5efa44922cc7ad9d97606, type: 2}
+    tileSkin: {fileID: 11400000, guid: 0bb678b1de91b124f8929f4c5693879b, type: 2}
+  - displayName: Lavender
+    category: Pastel
+    material: {fileID: 2100000, guid: 84b6df6a3ebce804fa5ae45343ad265d, type: 2}
+    mesh: {fileID: 4300000, guid: d3808ef268b5efa44922cc7ad9d97606, type: 2}
+    tileSkin: {fileID: 11400000, guid: 0bb678b1de91b124f8929f4c5693879b, type: 2}
+  - displayName: Rose
+    category: Pastel
+    material: {fileID: 2100000, guid: 037a540c2f040a54d9c6c9fb3ab61235, type: 2}
+    mesh: {fileID: 4300000, guid: d3808ef268b5efa44922cc7ad9d97606, type: 2}
+    tileSkin: {fileID: 11400000, guid: 0bb678b1de91b124f8929f4c5693879b, type: 2}
+  - displayName: Cream
+    category: Pastel
+    material: {fileID: 2100000, guid: b9c36bf7803d3cd49b56392dd442f1d5, type: 2}
+    mesh: {fileID: 4300000, guid: d3808ef268b5efa44922cc7ad9d97606, type: 2}
+    tileSkin: {fileID: 11400000, guid: 0bb678b1de91b124f8929f4c5693879b, type: 2}
+  defaultThemeIndex: 24

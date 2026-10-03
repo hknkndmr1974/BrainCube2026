@@ -70,3 +70,18 @@ packages/
 
 # Test sonuçları
 TestResults/
+
+# Build ciktilari ve yedek klasorleri
+/IOSBRAIN2026*/
+/*_BackUpThisFolder_ButDontShipItWithYourGame/
+/*_BurstDebugInformation_DoNotShip/
+/.utmp/
+UpgradeLog.htm
+
+# Imza anahtari - asla commit etme
+*.keystore
+*.jks
+
+# Unity kurtarma sahneleri
+/[Aa]ssets/_Recovery/
+/[Aa]ssets/_Recovery.meta

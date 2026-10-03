@@ -9,6 +9,9 @@ public class BridgeController : MonoBehaviour
     private Renderer tileRenderer;
     private Collider tileCollider;
 
+    /// <summary>CubeThemeManager atar: true iken orijinal görseller gizli kalır, yerine SkinMesh gösterilir.</summary>
+    public bool UsesSkinMesh { get; set; }
+
     private void Awake()
     {
         tileRenderer = GetComponent<Renderer>();
@@ -32,7 +35,7 @@ public class BridgeController : MonoBehaviour
         // Enable or disable renderer and collider based on active state
         if (tileRenderer != null)
         {
-            tileRenderer.enabled = isActive;
+            tileRenderer.enabled = isActive && !UsesSkinMesh;
         }
 
         if (tileCollider != null)
@@ -43,7 +46,8 @@ public class BridgeController : MonoBehaviour
         // Toggle all child GameObjects (like the Quad) active/inactive
         foreach (Transform child in transform)
         {
-            child.gameObject.SetActive(isActive);
+            bool isSkin = child.name == CubeThemeManager.SkinMeshName;
+            child.gameObject.SetActive(isActive && (!isSkin || UsesSkinMesh));
         }
     }
 

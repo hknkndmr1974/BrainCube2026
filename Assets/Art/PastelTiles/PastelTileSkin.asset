@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae843f8a646849c4e997b9fab48e8a71, type: 3}
+  m_Name: PastelTileSkin
+  m_EditorClassIdentifier: Assembly-CSharp::TileSkin
+  rules:
+  - namePrefix: WeakTile
+    swaps:
+    - from: {fileID: 2100000, guid: 263b8a5d2edad5a4188aa17c71130418, type: 2}
+      to: {fileID: 2100000, guid: fa00b787d1b6ba74183aaadc6e7fad62, type: 2}
+    - from: {fileID: 2100000, guid: 24520e99c8d21214aa96745e4e6ad9dc, type: 2}
+      to: {fileID: 2100000, guid: 0aac2b2a9ebf35f41b06905c87156826, type: 2}
+    mesh: {fileID: 0}
+    meshMaterials: []
+    checkerMaterials: []
+  - namePrefix: BridgeTile_
+    swaps: []
+    mesh: {fileID: 4300000, guid: e6927afacbf12934fb985dbb4397be31, type: 2}
+    meshMaterials:
+    - {fileID: 2100000, guid: 9cbe7d2564e332046b6628fd99d37cea, type: 2}
+    - {fileID: 2100000, guid: 68089c03cd3a2e346baa7adf7d64caaa, type: 2}
+    - {fileID: 2100000, guid: e8fdfdfe3cb13a14a9dbe412875be7a8, type: 2}
+    checkerMaterials: []
+  - namePrefix: TeleportTile_
+    swaps: []
+    mesh: {fileID: 4300000, guid: 34ab31643a9f6484e8e27987f8decd09, type: 2}
+    meshMaterials:
+    - {fileID: 2100000, guid: e396872474fb6904e8c9273509207dea, type: 2}
+    - {fileID: 2100000, guid: ab3348fd278d0a2408977b810fe73964, type: 2}
+    - {fileID: 2100000, guid: f4a68cae640ab3245b6f07ef0ffa2fe7, type: 2}
+    - {fileID: 2100000, guid: 6e33902375b00774cac5087996154fe5, type: 2}
+    - {fileID: 2100000, guid: f8d5d8b776f878d45ba0b1a47a48793c, type: 2}
+    checkerMaterials:
+    - {fileID: 2100000, guid: 054fcae58a279724b8e6550692999bb9, type: 2}
+    - {fileID: 2100000, guid: ab3348fd278d0a2408977b810fe73964, type: 2}
+    - {fileID: 2100000, guid: f4a68cae640ab3245b6f07ef0ffa2fe7, type: 2}
+    - {fileID: 2100000, guid: 6e33902375b00774cac5087996154fe5, type: 2}
+    - {fileID: 2100000, guid: f8d5d8b776f878d45ba0b1a47a48793c, type: 2}
+  - namePrefix: MoveNextTile_
+    swaps: []
+    mesh: {fileID: 4300000, guid: 051ddcff7eb65444abe1eab44bf3a433, type: 2}
+    meshMaterials:
+    - {fileID: 2100000, guid: e396872474fb6904e8c9273509207dea, type: 2}
+    - {fileID: 2100000, guid: 8ce5c62fbb955c54c897588f6c90ffef, type: 2}
+    - {fileID: 2100000, guid: daaf31189738c38469ed97ce8e8d28c2, type: 2}
+    - {fileID: 2100000, guid: 121e38d14412d104a8fc3b08a4528c57, type: 2}
+    checkerMaterials:
+    - {fileID: 2100000, guid: 054fcae58a279724b8e6550692999bb9, type: 2}
+    - {fileID: 2100000, guid: 8ce5c62fbb955c54c897588f6c90ffef, type: 2}
+    - {fileID: 2100000, guid: daaf31189738c38469ed97ce8e8d28c2, type: 2}
+    - {fileID: 2100000, guid: 121e38d14412d104a8fc3b08a4528c57, type: 2}
+  - namePrefix: SoftSwitchTile_
+    swaps: []
+    mesh: {fileID: 4300000, guid: 22b5ca26d9b299440a59fb1d7c43bc7f, type: 2}
+    meshMaterials:
+    - {fileID: 2100000, guid: e396872474fb6904e8c9273509207dea, type: 2}
+    - {fileID: 2100000, guid: 919865381e61f3841a3d88ab29886d36, type: 2}
+    - {fileID: 2100000, guid: 07de1482eb4e9294083d6d52a32a1fa3, type: 2}
+    - {fileID: 2100000, guid: 242f864794c02c5468e01661f2fc3e32, type: 2}
+    checkerMaterials:
+    - {fileID: 2100000, guid: 054fcae58a279724b8e6550692999bb9, type: 2}
+    - {fileID: 2100000, guid: 919865381e61f3841a3d88ab29886d36, type: 2}
+    - {fileID: 2100000, guid: 07de1482eb4e9294083d6d52a32a1fa3, type: 2}
+    - {fileID: 2100000, guid: 242f864794c02c5468e01661f2fc3e32, type: 2}
+  - namePrefix: HardSwitchTile_
+    swaps: []
+    mesh: {fileID: 4300000, guid: cb0b7bfb0fa81854e82cea09b40e06b7, type: 2}
+    meshMaterials:
+    - {fileID: 2100000, guid: e396872474fb6904e8c9273509207dea, type: 2}
+    - {fileID: 2100000, guid: c7292221f88f39b4287f1ad9fa5b3887, type: 2}
+    - {fileID: 2100000, guid: a68197926b7c4484fb59dbde5a90388c, type: 2}
+    - {fileID: 2100000, guid: 9381701cf1457014fa4dbaff5b31f0fe, type: 2}
+    checkerMaterials:
+    - {fileID: 2100000, guid: 054fcae58a279724b8e6550692999bb9, type: 2}
+    - {fileID: 2100000, guid: c7292221f88f39b4287f1ad9fa5b3887, type: 2}
+    - {fileID: 2100000, guid: a68197926b7c4484fb59dbde5a90388c, type: 2}
+    - {fileID: 2100000, guid: 9381701cf1457014fa4dbaff5b31f0fe, type: 2}
+  - namePrefix: SplitSwitchTile_
+    swaps: []
+    mesh: {fileID: 4300000, guid: a3929685b18016948b7a563d2c2b3ff0, type: 2}
+    meshMaterials:
+    - {fileID: 2100000, guid: e396872474fb6904e8c9273509207dea, type: 2}
+    - {fileID: 2100000, guid: 2724f16712f7be246acbe6a1c422e80a, type: 2}
+    - {fileID: 2100000, guid: 09317e27875480f468e9be0c447c218c, type: 2}
+    - {fileID: 2100000, guid: 24c657e0761d2dd4bae0b50231196782, type: 2}
+    checkerMaterials:
+    - {fileID: 2100000, guid: 054fcae58a279724b8e6550692999bb9, type: 2}
+    - {fileID: 2100000, guid: 2724f16712f7be246acbe6a1c422e80a, type: 2}
+    - {fileID: 2100000, guid: 09317e27875480f468e9be0c447c218c, type: 2}
+    - {fileID: 2100000, guid: 24c657e0761d2dd4bae0b50231196782, type: 2}
+  - namePrefix: NormalTile
+    swaps: []
+    mesh: {fileID: 4300000, guid: 8e7c97a10ee232843912874848c13837, type: 2}
+    meshMaterials:
+    - {fileID: 2100000, guid: e396872474fb6904e8c9273509207dea, type: 2}
+    - {fileID: 2100000, guid: 763ee1df07b578d4e97d2c6e3c9fe51a, type: 2}
+    checkerMaterials:
+    - {fileID: 2100000, guid: 054fcae58a279724b8e6550692999bb9, type: 2}
+    - {fileID: 2100000, guid: 763ee1df07b578d4e97d2c6e3c9fe51a, type: 2}
+  - namePrefix: StartTile
+    swaps: []
+    mesh: {fileID: 4300000, guid: 8e7c97a10ee232843912874848c13837, type: 2}
+    meshMaterials:
+    - {fileID: 2100000, guid: e396872474fb6904e8c9273509207dea, type: 2}
+    - {fileID: 2100000, guid: 763ee1df07b578d4e97d2c6e3c9fe51a, type: 2}
+    checkerMaterials:
+    - {fileID: 2100000, guid: 054fcae58a279724b8e6550692999bb9, type: 2}
+    - {fileID: 2100000, guid: 763ee1df07b578d4e97d2c6e3c9fe51a, type: 2}
+  - namePrefix: AppearTile
+    swaps: []
+    mesh: {fileID: 4300000, guid: 8e7c97a10ee232843912874848c13837, type: 2}
+    meshMaterials:
+    - {fileID: 2100000, guid: e396872474fb6904e8c9273509207dea, type: 2}
+    - {fileID: 2100000, guid: 763ee1df07b578d4e97d2c6e3c9fe51a, type: 2}
+    checkerMaterials:
+    - {fileID: 2100000, guid: 054fcae58a279724b8e6550692999bb9, type: 2}
+    - {fileID: 2100000, guid: 763ee1df07b578d4e97d2c6e3c9fe51a, type: 2}
+  - namePrefix: GoalTile
+    swaps: []
+    mesh: {fileID: 4300000, guid: d106510feae54bb4db8645b11e8b092d, type: 2}
+    meshMaterials:
+    - {fileID: 2100000, guid: 175fab80f2d81e544acae20ef0c1ae1c, type: 2}
+    - {fileID: 2100000, guid: 56e27f018beb5e64e8bd8adfc01c5861, type: 2}
+    - {fileID: 2100000, guid: 18981d6b97b96eb46aaa8e51c1a9fa11, type: 2}
+    - {fileID: 2100000, guid: 1ad435c63f742c24493127873a0d740d, type: 2}
+    - {fileID: 2100000, guid: 4a3ce1ffa9cd3e44d9f48a15a02553f7, type: 2}
+    checkerMaterials: []
+  - namePrefix: GoalTile
+    swaps:
+    - from: {fileID: 2100000, guid: b8126f8852e8ce445b863671d7036215, type: 2}
+      to: {fileID: 2100000, guid: 13b59a951f99d904ebe40925242ec3e9, type: 2}
+    - from: {fileID: 2100000, guid: ef14d3b1ed5deeb4483033ea869169de, type: 2}
+      to: {fileID: 2100000, guid: 8268fd4fc775fa242a4cbca70a13db01, type: 2}
+    mesh: {fileID: 0}
+    meshMaterials: []
+    checkerMaterials: []
+  - namePrefix: BridgeTile_
+    swaps:
+    - from: {fileID: 2100000, guid: c1039856c953f6143b366284c53ece75, type: 2}
+      to: {fileID: 2100000, guid: ff42cb601f855464e8e16add996565e7, type: 2}
+    mesh: {fileID: 0}
+    meshMaterials: []
+    checkerMaterials: []
+  - namePrefix: SoftSwitchTile_
+    swaps:
+    - from: {fileID: 2100000, guid: b8126f8852e8ce445b863671d7036215, type: 2}
+      to: {fileID: 2100000, guid: 84b6df6a3ebce804fa5ae45343ad265d, type: 2}
+    - from: {fileID: 2100000, guid: ef14d3b1ed5deeb4483033ea869169de, type: 2}
+      to: {fileID: 2100000, guid: 84b6df6a3ebce804fa5ae45343ad265d, type: 2}
+    mesh: {fileID: 0}
+    meshMaterials: []
+    checkerMaterials: []
+  - namePrefix: HardSwitchTile_
+    swaps:
+    - from: {fileID: 2100000, guid: b8126f8852e8ce445b863671d7036215, type: 2}
+      to: {fileID: 2100000, guid: 22a35def93be2ac49ac1995c93da11d5, type: 2}
+    - from: {fileID: 2100000, guid: ef14d3b1ed5deeb4483033ea869169de, type: 2}
+      to: {fileID: 2100000, guid: 22a35def93be2ac49ac1995c93da11d5, type: 2}
+    mesh: {fileID: 0}
+    meshMaterials: []
+    checkerMaterials: []
+  - namePrefix: SplitSwitchTile_
+    swaps:
+    - from: {fileID: 2100000, guid: b8126f8852e8ce445b863671d7036215, type: 2}
+      to: {fileID: 2100000, guid: 4df48721158a72d44bbe8543600ced8d, type: 2}
+    mesh: {fileID: 0}
+    meshMaterials: []
+    checkerMaterials: []
+  - namePrefix: MoveNextTile_
+    swaps:
+    - from: {fileID: 2100000, guid: b8126f8852e8ce445b863671d7036215, type: 2}
+      to: {fileID: 2100000, guid: df35c0115ed91804f86a4a0b4fff005d, type: 2}
+    mesh: {fileID: 0}
+    meshMaterials: []
+    checkerMaterials: []
+  - namePrefix: TeleportTile_
+    swaps:
+    - from: {fileID: 2100000, guid: b8126f8852e8ce445b863671d7036215, type: 2}
+      to: {fileID: 2100000, guid: 037a540c2f040a54d9c6c9fb3ab61235, type: 2}
+    - from: {fileID: 2100000, guid: ef14d3b1ed5deeb4483033ea869169de, type: 2}
+      to: {fileID: 2100000, guid: 037a540c2f040a54d9c6c9fb3ab61235, type: 2}
+    mesh: {fileID: 0}
+    meshMaterials: []
+    checkerMaterials: []
+  - namePrefix: 
+    swaps:
+    - from: {fileID: 2100000, guid: b8126f8852e8ce445b863671d7036215, type: 2}
+      to: {fileID: 2100000, guid: e51f364c889217e47806e985fad01c1e, type: 2}
+    - from: {fileID: 2100000, guid: ef14d3b1ed5deeb4483033ea869169de, type: 2}
+      to: {fileID: 2100000, guid: 802efeb579d4f3a44b33097322446596, type: 2}
+    - from: {fileID: 2100000, guid: 54eb0a880c35ecd4fa56b3b6c33e8aaa, type: 2}
+      to: {fileID: 2100000, guid: 87c1174b96d34684ca3648f6ff134851, type: 2}
+    mesh: {fileID: 0}
+    meshMaterials: []
+    checkerMaterials: []
+  glassSizeScale: 0.92

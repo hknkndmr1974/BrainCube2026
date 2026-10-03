@@ -36,6 +36,8 @@ public class LevelLoader : MonoBehaviour
     /// <summary>Şu an aktif olan levelın tüm verileri (JSON'dan okunan)</summary>
     public LevelData CurrentLevelData { get; private set; }
 
+    public IEnumerable<GameObject> SpawnedTiles => spawnedTiles.Values;
+
     /// <summary>Her level yüklendiğinde (restart veya yeni level) tetiklenir.</summary>
     public static event System.Action OnLevelLoaded;
 
@@ -117,6 +119,10 @@ public class LevelLoader : MonoBehaviour
                 if (tile != null)
                 {
                     spawnedTiles[gridCoord] = tile;
+                    if (CubeThemeManager.Instance != null)
+                    {
+                        CubeThemeManager.Instance.ApplyTileSkin(tile);
+                    }
                 }
 
                 // If it is the START tile, spawn the player block
