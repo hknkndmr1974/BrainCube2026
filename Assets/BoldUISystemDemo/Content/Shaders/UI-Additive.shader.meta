@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: cf1bf2e0f9e5be74c8c3cbb753c204e0
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373780
+  packageName: Bold UI System - DEMO
+  packageVersion: 1.0
+  assetPath: Assets/BoldUISystemDemo/Content/Shaders/UI-Additive.shader
+  uploadId: 900620

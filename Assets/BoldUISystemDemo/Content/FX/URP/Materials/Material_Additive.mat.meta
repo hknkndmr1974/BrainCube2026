@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 15d185bfb60553f47800ca409940e1bb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373780
+  packageName: Bold UI System - DEMO
+  packageVersion: 1.0
+  assetPath: Assets/BoldUISystemDemo/Content/FX/URP/Materials/Material_Additive.mat
+  uploadId: 900620

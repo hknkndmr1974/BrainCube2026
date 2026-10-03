@@ -424,6 +424,11 @@ public class TumbleController : MonoBehaviour
             if (hc != null) hc.ResetHintState();
 
             CurrentMoveCount++;
+            if (!decorativeMode)
+            {
+                GameplayEvents.RaisePlayerMoved(direction);
+            }
+
             if (isSplit)
             {
                 StartCoroutine(Tumble1x1(direction));
@@ -475,7 +480,7 @@ public class TumbleController : MonoBehaviour
             }
         }
 
-        Canvas canvas = FindObjectOfType<Canvas>();
+        Canvas canvas = HudCanvas.Find();
         if (canvas == null)
         {
             GameObject canvasObj = new GameObject("SplitCanvas");
@@ -522,11 +527,7 @@ public class TumbleController : MonoBehaviour
         textRect.sizeDelta = Vector2.zero;
 
         UnityEngine.UI.Text textComponent = textObj.AddComponent<UnityEngine.UI.Text>();
-        textComponent.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        if (textComponent.font == null)
-        {
-            textComponent.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-        }
+        textComponent.font = GameFont.Resolve();
         textComponent.fontSize = 20;
         textComponent.fontStyle = FontStyle.Bold;
         textComponent.alignment = TextAnchor.MiddleCenter;
@@ -541,7 +542,7 @@ public class TumbleController : MonoBehaviour
         UnityEngine.UI.Text textComponent = switchButtonObj.GetComponentInChildren<UnityEngine.UI.Text>();
         if (textComponent != null)
         {
-            textComponent.text = "Küp Değiştir (" + activeSplitPlayer + "/2)";
+            textComponent.text = GameText.Pick("Küp Değiştir (", "Switch Cube (") + activeSplitPlayer + "/2)";
         }
     }
 
@@ -769,11 +770,17 @@ public class TumbleController : MonoBehaviour
     {
         bool isStanding = Mathf.Abs(Vector3.Dot(transform.up, Vector3.up)) > 0.9f;
 
+        bool raiseEvents = !isSimulating && !decorativeMode;
+
         if (tileCollider.GetComponentInParent<GoalTile>() != null)
         {
             if (isStanding)
             {
                 StartCoroutine(WinLevel());
+            }
+            else if (raiseEvents)
+            {
+                GameplayEvents.RaiseGoalReachedLying();
             }
         }
         else if (tileCollider.GetComponentInParent<FragileTile>() != null)
@@ -819,6 +826,10 @@ public class TumbleController : MonoBehaviour
         foreach (var sw in switches)
         {
             sw.TryPress(isStanding);
+            if (raiseEvents && !isStanding && sw.switchType.StartsWith("h"))
+            {
+                GameplayEvents.RaiseHardSwitchPressedLying();
+            }
         }
 
         // Check for Conveyor (m tile) — sadece dik durumda çalışır
@@ -878,6 +889,7 @@ public class TumbleController : MonoBehaviour
     {
         isTumbling = true;
         playerFell = true;
+        RaiseFell(FallReason.Edge);
 
         PlaySound(AudioEventId.GameOver, gameOverSound);
 
@@ -940,6 +952,7 @@ public class TumbleController : MonoBehaviour
     {
         isTumbling = true;
         playerFell = true;
+        RaiseFell(straightDown ? FallReason.FragileTile : FallReason.Edge);
 
         PlaySound(AudioEventId.GameOver, gameOverSound);
 
@@ -998,6 +1011,12 @@ public class TumbleController : MonoBehaviour
             simulatedLevel = LevelLoader.Instance.levelIndex;
         }
         RestartLevel();
+    }
+
+    private void RaiseFell(FallReason reason)
+    {
+        if (isSimulating || decorativeMode) return;
+        GameplayEvents.RaisePlayerFell(reason);
     }
 
     private void RespawnDecorative()
@@ -1743,6 +1762,7 @@ public class TumbleController : MonoBehaviour
     {
         isTumbling = true;
         playerFell = true;
+        RaiseFell(FallReason.Edge);
         DestroySwitchButton();
 
         PlaySound(AudioEventId.GameOver, gameOverSound);

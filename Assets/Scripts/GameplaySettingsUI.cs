@@ -25,7 +25,7 @@ public sealed class GameplaySettingsUI : MonoBehaviour
 
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != MainMenuSceneName)
+        if (string.IsNullOrEmpty(scene.name) || !scene.name.StartsWith("MainMenu"))
         {
             return;
         }

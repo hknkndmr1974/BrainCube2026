@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b7bd49f983ee8e4449de1a0116970ad2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373780
+  packageName: Bold UI System - DEMO
+  packageVersion: 1.0
+  assetPath: Assets/BoldUISystemDemo/Content/Prefabs/Buttons/Square/Button_Square_Base.controller
+  uploadId: 900620

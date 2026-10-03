@@ -32,9 +32,6 @@ public sealed class CubeThemeUI : MonoBehaviour
     private MeshRenderer previewRenderer;
     private Material[] previewOriginalMaterials;
     private Coroutine visibilityRoutine;
-    private int themeIndexWhenOpened;
-    private bool themeSessionTracked;
-    private bool closeRewardedConsumed;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void RegisterSceneCallback()
@@ -45,7 +42,7 @@ public sealed class CubeThemeUI : MonoBehaviour
 
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != MainMenuSceneName)
+        if (string.IsNullOrEmpty(scene.name) || !scene.name.StartsWith("MainMenu"))
         {
             return;
         }
@@ -82,12 +79,6 @@ public sealed class CubeThemeUI : MonoBehaviour
         CubeThemeManager.ThemeChanged -= OnThemeChanged;
         CubeThemeManager.ThemeChanged += OnThemeChanged;
 
-        themeIndexWhenOpened = CubeThemeManager.Instance != null
-            ? CubeThemeManager.Instance.SelectedIndex
-            : 0;
-        themeSessionTracked = true;
-        closeRewardedConsumed = false;
-
         EnsurePreviewCubeRuntime();
         ApplyPreviewCubeTransform();
         if (previewCube != null)
@@ -118,59 +109,6 @@ public sealed class CubeThemeUI : MonoBehaviour
             StopCoroutine(visibilityRoutine);
             visibilityRoutine = null;
         }
-
-        // Settings Back gibi CloseCurrent dışı kapanışlarda da reklam
-        if (Application.isPlaying && themeSessionTracked && ThemeChangedThisSession())
-        {
-            TryShowCloseRewarded(null);
-        }
-
-        themeSessionTracked = false;
-    }
-
-    /// <summary>
-    /// Theme paneli kapanırken: tema değiştiyse rewarded gösterir, bitince onContinue.
-    /// Değişmediyse hemen devam eder.
-    /// </summary>
-    public static void CloseAfterOptionalRewarded(Animator panel, System.Action onContinue)
-    {
-        CubeThemeUI ui = panel != null ? panel.GetComponent<CubeThemeUI>() : null;
-        if (ui == null || !ui.ThemeChangedThisSession())
-        {
-            onContinue?.Invoke();
-            return;
-        }
-
-        ui.TryShowCloseRewarded(onContinue);
-    }
-
-    private bool ThemeChangedThisSession()
-    {
-        if (!themeSessionTracked || CubeThemeManager.Instance == null)
-        {
-            return false;
-        }
-
-        return CubeThemeManager.Instance.SelectedIndex != themeIndexWhenOpened;
-    }
-
-    private void TryShowCloseRewarded(System.Action onContinue)
-    {
-        if (closeRewardedConsumed)
-        {
-            onContinue?.Invoke();
-            return;
-        }
-
-        closeRewardedConsumed = true;
-
-        if (AdsManager.Instance == null)
-        {
-            onContinue?.Invoke();
-            return;
-        }
-
-        AdsManager.Instance.ShowRewarded(_ => onContinue?.Invoke());
     }
 
     private void Update()
@@ -457,8 +395,8 @@ public sealed class CubeThemeUI : MonoBehaviour
             if (bg != null)
             {
                 bg.color = active
-                    ? new Color(0f, 0.75f, 0.95f, 0.95f)
-                    : new Color(0f, 0.28f, 0.45f, 0.9f);
+                    ? new Color32(81, 238, 255, 255)
+                    : new Color32(130, 160, 170, 255);
             }
         }
     }

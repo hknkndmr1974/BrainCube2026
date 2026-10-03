@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cba073f4a56289a4c987c1a95190dbc5
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373780
+  packageName: Bold UI System - DEMO
+  packageVersion: 1.0
+  assetPath: Assets/BoldUISystemDemo/Content/FX/URP/Prefabs/FX_ProgressBarFiller_Green.prefab
+  uploadId: 900620

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 54f371332e27c4e41a49e544fec25d76
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373780
+  packageName: Bold UI System - DEMO
+  packageVersion: 1.0
+  assetPath: Assets/BoldUISystemDemo/Content/Prefabs/Buttons/BoxItems/Button_Tab_DailyDeals.prefab
+  uploadId: 900620

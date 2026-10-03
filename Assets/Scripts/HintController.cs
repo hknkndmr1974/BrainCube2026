@@ -126,7 +126,7 @@ public class HintController : MonoBehaviour
         }
 
         // Canvas check
-        Canvas canvas = FindObjectOfType<Canvas>();
+        Canvas canvas = HudCanvas.Find();
         if (canvas == null)
         {
             GameObject canvasObj = new GameObject("TestUICanvas");
@@ -136,7 +136,7 @@ public class HintController : MonoBehaviour
             canvasObj.AddComponent<GraphicRaycaster>();
         }
 
-        Font defaultFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf") ?? Resources.GetBuiltinResource<Font>("Arial.ttf");
+        Font defaultFont = GameFont.Resolve();
 
         // 1. Sahne Hint butonu (Canvas sol alt) — runtime'da ikinci buton üretme
         BindSceneHintButton(canvas.transform);
@@ -279,7 +279,7 @@ public class HintController : MonoBehaviour
         t.fontStyle = FontStyle.Bold;
         t.alignment = TextAnchor.MiddleCenter;
         t.color = new Color(0.2f, 0.65f, 1f, 1f); // Neon Mavi/Siyan renk tonu
-        t.text = "BÖLÜM ANALİZ EDİLİYOR...";
+        t.text = GameText.Pick("BÖLÜM ANALİZ EDİLİYOR...", "ANALYZING LEVEL...");
 
         // Alt Bilgi Yazısı
         GameObject subTextObj = new GameObject("Sub");
@@ -296,7 +296,7 @@ public class HintController : MonoBehaviour
         subT.fontStyle = FontStyle.Normal;
         subT.alignment = TextAnchor.MiddleCenter;
         subT.color = new Color(0.7f, 0.75f, 0.8f, 1f);
-        subT.text = "Yol haritasi ve ipuçlari çikariliyor, lütfen bekleyiniz...";
+        subT.text = GameText.Pick("Çözüm yolu ve ipuçları hazırlanıyor, lütfen bekleyin...", "Preparing the solution path and hints, please wait...");
 
         loadingOverlay.SetActive(false);
     }

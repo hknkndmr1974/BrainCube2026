@@ -1,0 +1,1008 @@
+fileFormatVersion: 2
+guid: b1d89dbfe28d11c4bb8776adf53011ee
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7183472704823271635
+    second: Pattern_SquareDots_0
+  - first:
+      213: 8307578356778581229
+    second: Pattern_SquareDots_1
+  - first:
+      213: -9183455598579495505
+    second: Pattern_SquareDots_2
+  - first:
+      213: 16451382935606190
+    second: Pattern_SquareDots_3
+  - first:
+      213: 1183939846285540754
+    second: Pattern_SquareDots_4
+  - first:
+      213: -4899374321637908851
+    second: Pattern_SquareDots_5
+  - first:
+      213: 4771817114438188005
+    second: Pattern_SquareDots_6
+  - first:
+      213: 7322685113410155397
+    second: Pattern_SquareDots_7
+  - first:
+      213: 8566015806842141140
+    second: Pattern_SquareDots_8
+  - first:
+      213: -3249607290197345349
+    second: Pattern_SquareDots_9
+  - first:
+      213: -6624470340922948530
+    second: Pattern_SquareDots_10
+  - first:
+      213: 6296004258292452879
+    second: Pattern_SquareDots_11
+  - first:
+      213: 3960999142058522766
+    second: Pattern_SquareDots_12
+  - first:
+      213: -4982275225805721758
+    second: Pattern_SquareDots_13
+  - first:
+      213: 3149992765427465397
+    second: Pattern_SquareDots_14
+  - first:
+      213: 4168479561292531820
+    second: Pattern_SquareDots_15
+  - first:
+      213: 4236323227894240958
+    second: Pattern_SquareDots_16
+  - first:
+      213: -8975254204550530711
+    second: Pattern_SquareDots_17
+  - first:
+      213: 4741280728000265012
+    second: Pattern_SquareDots_18
+  - first:
+      213: 5041289887300390331
+    second: Pattern_SquareDots_19
+  - first:
+      213: 7080150228435032772
+    second: Pattern_SquareDots_20
+  - first:
+      213: -642825946028798981
+    second: Pattern_SquareDots_21
+  - first:
+      213: 2960847707703502771
+    second: Pattern_SquareDots_22
+  - first:
+      213: -2077356666508612743
+    second: Pattern_SquareDots_23
+  - first:
+      213: -3223614932629370081
+    second: Pattern_SquareDots_24
+  - first:
+      213: 4112049259210109770
+    second: Pattern_SquareDots_25
+  - first:
+      213: -8644249485677326547
+    second: Pattern_SquareDots_26
+  - first:
+      213: 5977915144271849761
+    second: Pattern_SquareDots_27
+  - first:
+      213: -8951952609712676572
+    second: Pattern_SquareDots_28
+  - first:
+      213: -8437632220947217442
+    second: Pattern_SquareDots_29
+  - first:
+      213: -6042738298931661530
+    second: Pattern_SquareDots_30
+  - first:
+      213: -1180047700921125038
+    second: Pattern_SquareDots_31
+  - first:
+      213: -665512461720799480
+    second: Pattern_SquareDots_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 1, y: 1, z: 1, w: 1}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 128
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pattern_SquareDots_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2f5b4772ad2f4c90800000000000000
+      internalID: -7183472704823271635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 110
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: decb28300827a4370800000000000000
+      internalID: 8307578356778581229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_2
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 110
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fadc8140acfcd8080800000000000000
+      internalID: -9183455598579495505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_3
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 110
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea3d0f312727a3000800000000000000
+      internalID: 16451382935606190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_4
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 110
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29db74574033e6010800000000000000
+      internalID: 1183939846285540754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 110
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8e1a11330de10cb0800000000000000
+      internalID: -4899374321637908851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 88
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ebb7372266e83240800000000000000
+      internalID: 4771817114438188005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_7
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 88
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5837ada30576f9560800000000000000
+      internalID: 7322685113410155397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_8
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 88
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d9f43bddf990e670800000000000000
+      internalID: 8566015806842141140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_9
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 88
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb7440036317e2d0800000000000000
+      internalID: -3249607290197345349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_10
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 88
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e444d28a2572114a0800000000000000
+      internalID: -6624470340922948530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 67
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0e4ed7e386ef5750800000000000000
+      internalID: 6296004258292452879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_12
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 67
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e887602cbbb48f630800000000000000
+      internalID: 3960999142058522766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_13
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 67
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26fee9054176bdab0800000000000000
+      internalID: -4982275225805721758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_14
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 67
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bcba541bb507bb20800000000000000
+      internalID: 3149992765427465397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_15
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 67
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c684150531a69d930800000000000000
+      internalID: 4168479561292531820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_16
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 67
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb65f50e7817aca30800000000000000
+      internalID: 4236323227894240958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_17
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 47
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9693fe89add717380800000000000000
+      internalID: -8975254204550530711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_18
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 47
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43b7cd4a3b96cc140800000000000000
+      internalID: 4741280728000265012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_19
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 47
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd0f4e417246f540800000000000000
+      internalID: 5041289887300390331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_20
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 47
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca554ade1fb14260800000000000000
+      internalID: 7080150228435032772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_21
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 47
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfb8c8a35393417f0800000000000000
+      internalID: -642825946028798981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b762bb8d4b071920800000000000000
+      internalID: 2960847707703502771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_23
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 25
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97be6fc3e1fbb23e0800000000000000
+      internalID: -2077356666508612743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_24
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 25
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1b4bf75c4b6343d0800000000000000
+      internalID: -3223614932629370081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_25
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 25
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a437022c30fe01930800000000000000
+      internalID: 4112049259210109770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_26
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 25
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2f895854e4790880800000000000000
+      internalID: -8644249485677326547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_27
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 25
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12960cfb622d5f250800000000000000
+      internalID: 5977915144271849761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_28
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 4
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 421e1fbe78644c380800000000000000
+      internalID: -8951952609712676572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_29
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 4
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed30d05133287ea80800000000000000
+      internalID: -8437632220947217442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_30
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 4
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 625b78d6881e32ca0800000000000000
+      internalID: -6042738298931661530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_31
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 4
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25774904ed0af9fe0800000000000000
+      internalID: -1180047700921125038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pattern_SquareDots_32
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 4
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 807398d21ff93c6f0800000000000000
+      internalID: -665512461720799480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pattern_SquareDots_0: -7183472704823271635
+      Pattern_SquareDots_1: 8307578356778581229
+      Pattern_SquareDots_10: -6624470340922948530
+      Pattern_SquareDots_11: 6296004258292452879
+      Pattern_SquareDots_12: 3960999142058522766
+      Pattern_SquareDots_13: -4982275225805721758
+      Pattern_SquareDots_14: 3149992765427465397
+      Pattern_SquareDots_15: 4168479561292531820
+      Pattern_SquareDots_16: 4236323227894240958
+      Pattern_SquareDots_17: -8975254204550530711
+      Pattern_SquareDots_18: 4741280728000265012
+      Pattern_SquareDots_19: 5041289887300390331
+      Pattern_SquareDots_2: -9183455598579495505
+      Pattern_SquareDots_20: 7080150228435032772
+      Pattern_SquareDots_21: -642825946028798981
+      Pattern_SquareDots_22: 2960847707703502771
+      Pattern_SquareDots_23: -2077356666508612743
+      Pattern_SquareDots_24: -3223614932629370081
+      Pattern_SquareDots_25: 4112049259210109770
+      Pattern_SquareDots_26: -8644249485677326547
+      Pattern_SquareDots_27: 5977915144271849761
+      Pattern_SquareDots_28: -8951952609712676572
+      Pattern_SquareDots_29: -8437632220947217442
+      Pattern_SquareDots_3: 16451382935606190
+      Pattern_SquareDots_30: -6042738298931661530
+      Pattern_SquareDots_31: -1180047700921125038
+      Pattern_SquareDots_32: -665512461720799480
+      Pattern_SquareDots_4: 1183939846285540754
+      Pattern_SquareDots_5: -4899374321637908851
+      Pattern_SquareDots_6: 4771817114438188005
+      Pattern_SquareDots_7: 7322685113410155397
+      Pattern_SquareDots_8: 8566015806842141140
+      Pattern_SquareDots_9: -3249607290197345349
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373780
+  packageName: Bold UI System - DEMO
+  packageVersion: 1.0
+  assetPath: Assets/BoldUISystemDemo/Content/AtlasUI/Sprites/Patterns/Pattern_SquareDots.png
+  uploadId: 900620

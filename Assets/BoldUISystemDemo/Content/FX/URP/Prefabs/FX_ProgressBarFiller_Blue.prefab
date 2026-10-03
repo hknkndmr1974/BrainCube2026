@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6292472234704416645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3989022544349171689, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: m_Name
+      value: FX_ProgressBarFiller_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993120025727917302, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993120025727917302, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993120025727917302, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.6585835
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993120025727917302, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.41176474
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993120025727917302, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.minColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993120025727917302, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0.99215686
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993120025727917302, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.46095175
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993120025727917302, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.21568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993120025727917302, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876215685473929355, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876215685473929355, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876215685473929355, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125630131013254507, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125630131013254507, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125630131013254507, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.58825576
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125630131013254507, guid: 598df41eace198b4ab633931972e928f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.3176471
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 598df41eace198b4ab633931972e928f, type: 3}

@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6156609016202362
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1472112642953018404}
+    m_Modifications:
+    - target: {fileID: 495353219133744910, guid: cba073f4a56289a4c987c1a95190dbc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 495353219133744910, guid: cba073f4a56289a4c987c1a95190dbc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495353219133744910, guid: cba073f4a56289a4c987c1a95190dbc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874482746550648630, guid: cba073f4a56289a4c987c1a95190dbc5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210841720252320129, guid: cba073f4a56289a4c987c1a95190dbc5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702569973333200477, guid: cba073f4a56289a4c987c1a95190dbc5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919922621914390636, guid: cba073f4a56289a4c987c1a95190dbc5, type: 3}
+      propertyPath: m_Name
+      value: FX_ProgressBarFiller_Green
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cba073f4a56289a4c987c1a95190dbc5, type: 3}
+--- !u!4 &489210415390040948 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 495353219133744910, guid: cba073f4a56289a4c987c1a95190dbc5, type: 3}
+  m_PrefabInstance: {fileID: 6156609016202362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4758996162807563205
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 410419226455905980, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952168295648954057, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_SortingLayer
+      value: 32709
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092645397594621791, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b48a8c682e684e4882a937cb83d638b, type: 3}
+    - target: {fileID: 2037598094469333529, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037598094469333529, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037598094469333529, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037598094469333529, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037598094469333529, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924046123671669213, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_Name
+      value: ProgressBar_Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818631285353615960, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818631285353615960, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6230635925744252834, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_SortingLayer
+      value: 32709
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988207786699964693, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_SortingLayer
+      value: 32709
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020779183038619927, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148716911456245363, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b48a8c682e684e4882a937cb83d638b, type: 3}
+    - target: {fileID: 9112235063395052973, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112235063395052973, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 3205624546797267192, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6225847623811923937, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 489210415390040948}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+--- !u!224 &1472112642953018404 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6225847623811923937, guid: a6298ae9e438070408919bd0cf7b7bdf, type: 3}
+  m_PrefabInstance: {fileID: 4758996162807563205}
+  m_PrefabAsset: {fileID: 0}

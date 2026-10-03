@@ -22,6 +22,9 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private Animator pauseAnimator;
     [SerializeField] private Animator levelCompleteAnimator;
 
+    [Header("Scene Loading")]
+    [SerializeField] private string mainMenuSceneName = "MainMenuNew";
+
     [Header("Optional HUD")]
     [SerializeField] private Button pauseHudButton;
 
@@ -32,7 +35,7 @@ public class GameUIController : MonoBehaviour
 
     public bool IsPaused { get; private set; }
     public bool IsLevelCompleteOpen { get; private set; }
-    public bool BlocksGameplay => IsPaused || IsLevelCompleteOpen || isAnimatingMenu;
+    public bool BlocksGameplay => IsPaused || IsLevelCompleteOpen || isAnimatingMenu || TutorialManager.BlocksGameplay;
 
     private float previousTimeScale = 1f;
     private int openParamId;
@@ -45,6 +48,8 @@ public class GameUIController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        if (GetComponent<Canvas>() != null && GetComponent<HudSafeArea>() == null)
+            gameObject.AddComponent<HudSafeArea>();
         openParamId = Animator.StringToHash(OpenParam);
         ResolveReferences();
         CloseAllMenusImmediate();
@@ -395,7 +400,7 @@ public class GameUIController : MonoBehaviour
         CloseActiveMenuAnimated(() =>
         {
             AudioManager.Instance?.PauseMusic(false);
-            ShowInterstitialThen(DoRestartLevel);
+            DoRestartLevel();
         });
     }
 
@@ -439,7 +444,7 @@ public class GameUIController : MonoBehaviour
         CloseActiveMenuAnimated(() =>
         {
             AudioManager.Instance?.PauseMusic(false);
-            ShowInterstitialThen(DoReturnToMainMenu);
+            DoReturnToMainMenu();
         });
     }
 
@@ -457,7 +462,7 @@ public class GameUIController : MonoBehaviour
 
     private void DoReturnToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 
     private static void ShowInterstitialThen(System.Action continueAction)
@@ -506,7 +511,7 @@ public class GameUIController : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 
     private void CloseActiveMenuAnimated(System.Action onClosed)

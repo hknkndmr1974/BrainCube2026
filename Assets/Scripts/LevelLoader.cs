@@ -25,6 +25,10 @@ public class LevelLoader : MonoBehaviour
     [Header("Player Settings")]
     public GameObject playerBlockPrefab;
 
+    [Header("Debug")]
+    [Tooltip("Oyun ekranının üstünde bölüm/dünya ileri-geri barını gösterir. App Store'a göndermeden önce kapatın.")]
+    public bool showLevelNavigator;
+
     // Track active tiles in the grid: Key is (column, row)
     private Dictionary<Vector2Int, GameObject> spawnedTiles = new Dictionary<Vector2Int, GameObject>();
     private GameObject playerInstance;

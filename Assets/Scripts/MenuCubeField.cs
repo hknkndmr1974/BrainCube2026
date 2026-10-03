@@ -1,84 +1,163 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Main menu arka planında derinlik hissi veren, farklı boyut ve hızlarda dönen küp alanı.
+/// Main menu arka planında farklı boyut ve hızlarda dönen blok alanı.
+/// Bloklar ekran (viewport) koordinatlarında saklanır ve kameranın görüşüne göre
+/// konumlanır; böylece her ekran oranında hepsi görünür, panelin arkası boş kalır.
 /// </summary>
 public class MenuCubeField : MonoBehaviour
 {
     [SerializeField] private GameObject cubeTemplate;
-    [SerializeField] private int cubeCount = 20;
+    [SerializeField] private Camera viewCamera;
+    [SerializeField] private Material[] palette;
+    [SerializeField] private int cubeCount = 22;
     [SerializeField] private int seed = 42;
-    [SerializeField] private float centerClearX = 14f;
-    [SerializeField] private Vector2 xRange = new Vector2(-48f, 48f);
-    [SerializeField] private Vector2 yRange = new Vector2(-10f, 12f);
-    [SerializeField] private Vector2 zRange = new Vector2(-18f, 36f);
-    [SerializeField] private Vector2 scaleRange = new Vector2(0.22f, 1.05f);
-    [SerializeField] private Vector2 spinYRange = new Vector2(6f, 38f);
+    [Tooltip("Kameradan uzaklık aralığı (dünya birimi).")]
+    [SerializeField] private Vector2 depthRange = new Vector2(42f, 100f);
+    [SerializeField] private Vector2 scaleRange = new Vector2(0.35f, 0.75f);
+    [Tooltip("Ekran ortasında boş bırakılan yarı genişlik (viewport oranı). Menü paneli burada durur.")]
+    [SerializeField] [Range(0f, 0.45f)] private float centerClear = 0.22f;
+    [Tooltip("Kenar payları ve aralıklar bu orana göre hesaplanır; daha geniş ekranlarda bloklar sadece açılır.")]
+    [SerializeField] private float referenceAspect = 4f / 3f;
+    [SerializeField] [Range(0f, 0.2f)] private float edgePadding = 0.03f;
+    [SerializeField] private Vector2 spinYRange = new Vector2(6f, 30f);
     [SerializeField] private Vector2 spinXZRange = new Vector2(2f, 10f);
+
+    [SerializeField] [HideInInspector] private List<Transform> cubes = new List<Transform>();
+    [SerializeField] [HideInInspector] private List<Vector3> anchors = new List<Vector3>();
+
+    private float lastAspect;
+
+    private void Start()
+    {
+        Reposition();
+    }
+
+    private void LateUpdate()
+    {
+        Camera cam = ResolveCamera();
+        if (cam != null && !Mathf.Approximately(cam.aspect, lastAspect))
+        {
+            Reposition();
+        }
+    }
 
     [ContextMenu("Rebuild Field")]
     public void RebuildField()
     {
-        if (cubeTemplate == null)
+        Camera cam = ResolveCamera();
+        if (cubeTemplate == null || cam == null)
         {
-            Debug.LogWarning("MenuCubeField: cubeTemplate atanmamış.");
+            Debug.LogWarning("MenuCubeField: cubeTemplate veya kamera atanmamış.");
             return;
         }
 
         ClearGenerated();
 
         var rng = new System.Random(seed);
-        var baseScale = cubeTemplate.transform.localScale;
+        var colorRng = new System.Random(seed * 31 + 7);
+        int lastColor = -1;
+        Vector3 baseScale = cubeTemplate.transform.localScale;
+        float diagonal = baseScale.magnitude;
+        float tanHalf = Mathf.Tan(cam.fieldOfView * 0.5f * Mathf.Deg2Rad);
+
+        var placedPos = new List<Vector2>();
+        var placedRadius = new List<float>();
 
         for (int i = 0; i < cubeCount; i++)
         {
-            // Derinlik: uzak = küçük + yavaş, yakın = büyük + biraz daha hızlı
-            float depth01 = Mathf.Clamp01((float)rng.NextDouble());
-            // Karışık dağılım; arka planda biraz daha çok küçük küp
-            depth01 = Mathf.Pow(depth01, 0.75f);
+            float depth01 = Mathf.Pow((float)rng.NextDouble(), 0.8f);
+            float depth = Mathf.Lerp(depthRange.x, depthRange.y, depth01);
+            float scaleMul = Mathf.Lerp(scaleRange.x, scaleRange.y, (float)rng.NextDouble());
 
-            float z = Mathf.Lerp(zRange.x, zRange.y, depth01);
-            float nearness = 1f - depth01; // 1 = kameraya yakın
+            // Dönen bloğun ekranda kaplayabileceği en büyük yarıçap (viewport yüksekliği oranı).
+            float radiusV = (diagonal * scaleMul * 0.5f) / (2f * tanHalf * depth);
+            float radiusU = radiusV / referenceAspect;
 
-            float scaleMul = Mathf.Lerp(scaleRange.x, scaleRange.y, nearness * 0.65f + (float)rng.NextDouble() * 0.35f);
-            // Çok yakındakiler aşırı büyük olmasın
-            if (z < -8f) scaleMul = Mathf.Min(scaleMul, 0.85f);
-
-            // Sağ/sol dengesi: sırayla taraf, sonra o tarafta rastgele X
             float side = (i % 2 == 0) ? -1f : 1f;
-            float clear = Mathf.Lerp(centerClearX * 0.4f, centerClearX, nearness);
-            float xMin = clear;
-            float xMax = Mathf.Abs(side < 0 ? xRange.x : xRange.y);
-            float x = side * Mathf.Lerp(xMin, xMax, (float)rng.NextDouble());
+            float uMin = 0.5f + centerClear + radiusU;
+            float uMax = 1f - edgePadding - radiusU;
+            float vMin = edgePadding + radiusV;
+            float vMax = 1f - edgePadding - radiusV;
+            if (uMin >= uMax || vMin >= vMax)
+            {
+                continue;
+            }
 
-            // Uzak küçük küpler hafif ortaya kayabilir (derinlik hissi)
-            if (nearness < 0.35f && rng.NextDouble() < 0.35)
-                x *= Mathf.Lerp(0.35f, 0.7f, (float)rng.NextDouble());
+            bool found = false;
+            Vector2 uv = Vector2.zero;
+            for (int attempt = 0; attempt < 40 && !found; attempt++)
+            {
+                float u = Mathf.Lerp(uMin, uMax, (float)rng.NextDouble());
+                if (side < 0f)
+                {
+                    u = 1f - u;
+                }
 
-            float y = Mathf.Lerp(yRange.x, yRange.y, (float)rng.NextDouble());
+                uv = new Vector2(u, Mathf.Lerp(vMin, vMax, (float)rng.NextDouble()));
+                found = true;
+                for (int p = 0; p < placedPos.Count; p++)
+                {
+                    Vector2 d = uv - placedPos[p];
+                    d.x *= referenceAspect;
+                    if (d.magnitude < (radiusV + placedRadius[p]) * 1.05f)
+                    {
+                        found = false;
+                        break;
+                    }
+                }
+            }
+
+            if (!found)
+            {
+                continue;
+            }
+
+            placedPos.Add(uv);
+            placedRadius.Add(radiusV);
 
             var go = Instantiate(cubeTemplate, transform);
             go.name = $"DisplayCube_{i:00}";
             go.SetActive(true);
-            go.transform.localPosition = new Vector3(x, y, z);
             go.transform.localScale = baseScale * scaleMul;
             go.transform.localRotation = Quaternion.Euler(
                 (float)rng.NextDouble() * 360f,
                 (float)rng.NextDouble() * 360f,
                 (float)rng.NextDouble() * 360f);
 
+            if (palette != null && palette.Length > 0)
+            {
+                var mr = go.GetComponent<MeshRenderer>();
+                if (mr != null)
+                {
+                    int color = colorRng.Next(palette.Length);
+                    if (color == lastColor && palette.Length > 1)
+                    {
+                        color = (color + 1) % palette.Length;
+                    }
+
+                    lastColor = color;
+                    mr.sharedMaterial = palette[color];
+                }
+            }
+
             float spinSign = rng.NextDouble() < 0.5 ? -1f : 1f;
-            float spinSpeed = Mathf.Lerp(spinYRange.x, spinYRange.y, nearness * 0.5f + (float)rng.NextDouble() * 0.5f);
+            float spinSpeed = Mathf.Lerp(spinYRange.x, spinYRange.y, (float)rng.NextDouble());
             float spinX = Mathf.Lerp(spinXZRange.x, spinXZRange.y, (float)rng.NextDouble()) * (rng.NextDouble() < 0.5 ? -1f : 1f);
             float spinZ = Mathf.Lerp(spinXZRange.x, spinXZRange.y, (float)rng.NextDouble()) * (rng.NextDouble() < 0.5 ? -1f : 1f);
 
             var spinner = go.GetComponent<MenuCubeSpinner>();
             if (spinner == null) spinner = go.AddComponent<MenuCubeSpinner>();
             spinner.SetDegreesPerSecond(new Vector3(spinX, spinSign * spinSpeed, spinZ));
+
+            cubes.Add(go.transform);
+            anchors.Add(new Vector3(uv.x, uv.y, depth));
         }
 
         // Template sahne önizlemesinde görünmesin
         cubeTemplate.SetActive(false);
+        Reposition();
     }
 
     [ContextMenu("Clear Generated")]
@@ -96,5 +175,37 @@ public class MenuCubeField : MonoBehaviour
 #endif
                 Destroy(child.gameObject);
         }
+
+        cubes.Clear();
+        anchors.Clear();
+    }
+
+    private void Reposition()
+    {
+        Camera cam = ResolveCamera();
+        if (cam == null)
+        {
+            return;
+        }
+
+        lastAspect = cam.aspect;
+        int count = Mathf.Min(cubes.Count, anchors.Count);
+        for (int i = 0; i < count; i++)
+        {
+            if (cubes[i] != null)
+            {
+                cubes[i].position = cam.ViewportToWorldPoint(anchors[i]);
+            }
+        }
+    }
+
+    private Camera ResolveCamera()
+    {
+        if (viewCamera == null)
+        {
+            viewCamera = Camera.main;
+        }
+
+        return viewCamera;
     }
 }

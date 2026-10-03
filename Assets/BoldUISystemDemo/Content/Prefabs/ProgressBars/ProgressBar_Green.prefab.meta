@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 23af6f4b4703c7748a93b95d6735f2a1
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373780
+  packageName: Bold UI System - DEMO
+  packageVersion: 1.0
+  assetPath: Assets/BoldUISystemDemo/Content/Prefabs/ProgressBars/ProgressBar_Green.prefab
+  uploadId: 900620

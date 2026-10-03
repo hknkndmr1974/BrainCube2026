@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0584b19727fbc1545ac85ce4c87498c3
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373780
+  packageName: Bold UI System - DEMO
+  packageVersion: 1.0
+  assetPath: Assets/BoldUISystemDemo/Content/Prefabs/Tooltips/Tooltip_White.prefab
+  uploadId: 900620

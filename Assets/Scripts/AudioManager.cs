@@ -328,7 +328,8 @@ public sealed class AudioManager : MonoBehaviour
             return;
         }
 
-        AudioCue musicCue = scene.name == "MainMenu"
+        bool isMenuScene = !string.IsNullOrEmpty(scene.name) && scene.name.StartsWith("MainMenu");
+        AudioCue musicCue = isMenuScene
             ? EventLibrary.menuMusic
             : EventLibrary.gameplayMusic;
 

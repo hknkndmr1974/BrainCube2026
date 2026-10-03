@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9a15b172f74b4fa4c900420c8f74dcb8
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373780
+  packageName: Bold UI System - DEMO
+  packageVersion: 1.0
+  assetPath: Assets/BoldUISystemDemo/Content/Prefabs/Buttons/Toggle/Button_Toggle.prefab
+  uploadId: 900620

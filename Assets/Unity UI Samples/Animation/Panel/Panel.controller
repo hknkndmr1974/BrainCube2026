@@ -41,7 +41,7 @@ Transition:
   - m_ConditionMode: 5
     m_ConditionEvent: Open
     m_EventTreshold: 0
-    m_ExitTime: 0
+    m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -55,7 +55,7 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110200000}
   m_DstState: {fileID: 110298097}
-  m_TransitionDuration: .74824959
+  m_TransitionDuration: 0
   m_TransitionOffset: .00167740975
   m_Conditions:
   - m_ConditionMode: 2
@@ -75,7 +75,7 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110262325}
   m_DstState: {fileID: 110200000}
-  m_TransitionDuration: .931546509
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
@@ -92,7 +92,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Open
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 192d548898c01fb43bf53b8e95b9fff3, type: 2}
@@ -107,7 +107,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Closed
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: e18126576915f8146af49e3910b4809f, type: 2}
@@ -122,7 +122,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Closing
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: e7b4b73a0b041314f856b13bf63f0b84, type: 2}

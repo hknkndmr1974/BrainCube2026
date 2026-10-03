@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a6298ae9e438070408919bd0cf7b7bdf
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 373780
+  packageName: Bold UI System - DEMO
+  packageVersion: 1.0
+  assetPath: Assets/BoldUISystemDemo/Content/Prefabs/ProgressBars/ProgressBar_Blue_Base.prefab
+  uploadId: 900620

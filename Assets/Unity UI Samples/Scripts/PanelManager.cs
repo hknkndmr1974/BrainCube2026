@@ -46,11 +46,6 @@ public class PanelManager : MonoBehaviour
 		Animator closing = m_Open;
 		if (closing != null)
 		{
-			bool adDone = false;
-			CubeThemeUI.CloseAfterOptionalRewarded(closing, () => adDone = true);
-			while (!adDone)
-				yield return null;
-
 			AudioManager.Instance?.PlayUiEvent(AudioEventId.MenuTransition);
 			closing.SetBool(m_OpenParameterId, false);
 			SetSelected(m_PreviouslySelected);
@@ -113,11 +108,6 @@ public class PanelManager : MonoBehaviour
 
 	IEnumerator CloseCurrentRoutine(Animator closing)
 	{
-		bool adDone = false;
-		CubeThemeUI.CloseAfterOptionalRewarded(closing, () => adDone = true);
-		while (!adDone)
-			yield return null;
-
 		if (closing == null)
 		{
 			m_TransitionRoutine = null;

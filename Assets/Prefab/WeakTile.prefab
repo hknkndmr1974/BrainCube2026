@@ -5873,8 +5873,7 @@ MonoBehaviour:
   glassSize: {x: 1, y: 1}
   thickness: 0.155
   glassMaterial: {fileID: 2100000, guid: 263b8a5d2edad5a4188aa17c71130418, type: 2}
-  glassCrossSectionMaterial: {fileID: 2100000, guid: 24520e99c8d21214aa96745e4e6ad9dc,
-    type: 2}
+  glassCrossSectionMaterial: {fileID: 2100000, guid: 24520e99c8d21214aa96745e4e6ad9dc, type: 2}
   isBreakableByPhysics: 1
   healthPhysics: 10
   isBreakableByRaycast: 1
