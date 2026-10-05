@@ -114,6 +114,7 @@ public class AdsManager : MonoBehaviour
         }
 #endif
 
+        MobileAds.RaiseAdEventsOnUnityMainThread = true;
         MobileAds.Initialize(status =>
         {
             IsInitialized = true;

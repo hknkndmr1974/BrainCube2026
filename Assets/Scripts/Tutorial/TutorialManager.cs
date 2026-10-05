@@ -24,6 +24,11 @@ public sealed class TutorialManager : MonoBehaviour
     private const float CardTapDelay = 0.35f;
     private const float ToastDuration = 2.6f;
     private const float GuideSwipeLength = 170f;
+    private const float GuideHandSize = 150f;
+
+    // Parmak ucunun sprite içindeki konumu (normalize); bastırma anında uç yerinde kalsın diye ayrı
+    private static readonly Vector2 HandUpTipPivot = new Vector2(0.05f, 0.68f);
+    private static readonly Vector2 HandDownTipPivot = new Vector2(0.10f, 0.84f);
 
     // World 1 bölüm -> rehberlik edilecek hamle sayısı (0 = çözümün tamamı)
     private static readonly Dictionary<int, int> GuidedLevelsWorld1 = new Dictionary<int, int>
@@ -47,6 +52,8 @@ public sealed class TutorialManager : MonoBehaviour
     private Sprite circleSprite;
     private Sprite ringSprite;
     private Sprite triangleSprite;
+    private Sprite handUpSprite;
+    private Sprite handDownSprite;
 
     private GameObject cardRoot;
     private CanvasGroup cardGroup;
@@ -447,17 +454,51 @@ public sealed class TutorialManager : MonoBehaviour
         guideArrow.anchoredPosition = start + dir * (GuideSwipeLength + 18f);
         guideArrow.localEulerAngles = new Vector3(0f, 0f, angle);
 
-        const float cycle = 1.2f;
-        const float travel = 0.8f;
-        float phase = (Time.unscaledTime % cycle) / travel;
-        float move = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(phase));
-        float alpha = phase < 0.15f ? phase / 0.15f : (phase > 1f ? 0f : 1f - Mathf.Clamp01((phase - 0.75f) / 0.25f));
+        if (HasHandSprites)
+        {
+            UpdateGuideHand(start, dir);
+        }
+        else
+        {
+            const float cycle = 1.2f;
+            const float travel = 0.8f;
+            float phase = (Time.unscaledTime % cycle) / travel;
+            float move = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(phase));
+            float alpha = phase < 0.15f ? phase / 0.15f : (phase > 1f ? 0f : 1f - Mathf.Clamp01((phase - 0.75f) / 0.25f));
 
-        guideDot.anchoredPosition = start + dir * (GuideSwipeLength * move);
-        guideDotImage.color = new Color(1f, 1f, 1f, 0.9f * alpha);
+            guideDot.anchoredPosition = start + dir * (GuideSwipeLength * move);
+            guideDotImage.color = new Color(1f, 1f, 1f, 0.9f * alpha);
+        }
 
         guideLabel.gameObject.SetActive(guideShowLabel && guideIndex == 0);
         guideLabel.rectTransform.anchoredPosition = start + new Vector2(0f, 120f);
+    }
+
+    /// <summary>El: belir → bastır → basılı kaydır → kaldır → sön.</summary>
+    private void UpdateGuideHand(Vector2 start, Vector2 dir)
+    {
+        const float cycle = 1.8f;
+        const float appearEnd = 0.12f;
+        const float pressEnd = 0.22f;
+        const float slideEnd = 0.70f;
+        const float liftEnd = 0.80f;
+        const float fadeEnd = 0.92f;
+
+        float t = (Time.unscaledTime % cycle) / cycle;
+        bool pressed = t >= appearEnd && t < slideEnd;
+        float move = t < pressEnd ? 0f : Mathf.SmoothStep(0f, 1f, Mathf.Clamp01((t - pressEnd) / (slideEnd - pressEnd)));
+
+        float alpha;
+        if (t < appearEnd) alpha = t / appearEnd;
+        else if (t < liftEnd) alpha = 1f;
+        else if (t < fadeEnd) alpha = 1f - (t - liftEnd) / (fadeEnd - liftEnd);
+        else alpha = 0f;
+
+        guideDotImage.sprite = pressed ? handDownSprite : handUpSprite;
+        guideDot.pivot = pressed ? HandDownTipPivot : HandUpTipPivot;
+        guideDot.localScale = Vector3.one * (pressed ? 0.94f : 1f);
+        guideDot.anchoredPosition = start + dir * (GuideSwipeLength * move);
+        guideDotImage.color = new Color(1f, 1f, 1f, alpha);
     }
 
     // ─── KISA İPUÇLARI ───────────────────────────────
@@ -748,9 +789,20 @@ public sealed class TutorialManager : MonoBehaviour
         guideArrow = arrow.rectTransform;
         Center(guideArrow, new Vector2(56f, 56f));
 
-        guideDotImage = CreateImage("Dot", guideRoot, circleSprite, Color.white);
-        guideDot = guideDotImage.rectTransform;
-        Center(guideDot, new Vector2(70f, 70f));
+        if (HasHandSprites)
+        {
+            guideDotImage = CreateImage("Hand", guideRoot, handUpSprite, Color.white);
+            guideDotImage.preserveAspect = true;
+            guideDot = guideDotImage.rectTransform;
+            Center(guideDot, new Vector2(GuideHandSize, GuideHandSize));
+            guideDot.pivot = HandUpTipPivot;
+        }
+        else
+        {
+            guideDotImage = CreateImage("Dot", guideRoot, circleSprite, Color.white);
+            guideDot = guideDotImage.rectTransform;
+            Center(guideDot, new Vector2(70f, 70f));
+        }
 
         guideLabel = CreateText("Label", guideRoot, 40, FontStyle.Bold, TextAnchor.MiddleCenter, Color.white);
         guideLabel.text = TutorialContent.GetTip(TutorialTip.Swipe);
@@ -822,7 +874,11 @@ public sealed class TutorialManager : MonoBehaviour
         circleSprite = CreateRoundedSprite(128, 64);
         ringSprite = CreateRingSprite(256, 14f);
         triangleSprite = CreateTriangleSprite(128);
+        handUpSprite = Resources.Load<Sprite>("Tutorial/Hand-up");
+        handDownSprite = Resources.Load<Sprite>("Tutorial/Hand-down");
     }
+
+    private bool HasHandSprites => handUpSprite != null && handDownSprite != null;
 
     private static Sprite CreateRoundedSprite(int size, int radius)
     {

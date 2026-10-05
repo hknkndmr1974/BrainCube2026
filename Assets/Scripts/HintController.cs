@@ -20,6 +20,9 @@ public class HintController : MonoBehaviour
     [Tooltip("AD basınca reklam sonrası otomatik hint başlat")]
     [SerializeField] private bool autoPlayHintAfterAd = true;
 
+    [Tooltip("Reklamdan / Store'dan dönünce ipucu başlamadan önce beklenecek süre (sn)")]
+    [SerializeField] private float resumeSettleDelay = 0.7f;
+
     [Header("UI Referansları")]
     [Tooltip("Canvas altındaki sahne Hint butonu. Boşsa Canvas/HintButton aranır.")]
     public Button sceneHintButton;
@@ -37,6 +40,15 @@ public class HintController : MonoBehaviour
     private bool isPlaying = false;
     private bool hintSessionCharged = false;
     private bool waitingForAd = false;
+
+    // Oyun ekranda değilken (reklam, Store) ipucu oynatılmaz; dönünce bekleyip başlatılır.
+    private bool appHasFocus = true;
+    private bool appPaused = false;
+    private float lastForegroundTime;
+    private bool pendingAutoHint = false;
+    private Coroutine autoHintRoutine;
+    private int hintRunId = 0;
+    private bool hintRoutineAlive = false;
 
     // Kaldığı yeri hafızada tut
     private int resumeMoveIndex = 0;
@@ -84,6 +96,9 @@ public class HintController : MonoBehaviour
     private void ResetHint()
     {
         StopAllCoroutines();
+        autoHintRoutine = null;
+        pendingAutoHint = false;
+        hintRoutineAlive = false;
         isPlaying = false;
         resumeMoveIndex = 0;
         savedMoves = null;
@@ -306,9 +321,18 @@ public class HintController : MonoBehaviour
     {
         if (waitingForAd) return;
 
+        CancelPendingAutoHint();
+
         if (isPlaying)
         {
             isPlaying = false;
+            return;
+        }
+
+        // Duraklatılmış ipucu: hakkı zaten düşüldü, reklam istemeden devam et
+        if (hintSessionCharged && savedMoves != null)
+        {
+            ResumePausedHint();
             return;
         }
 
@@ -332,7 +356,7 @@ public class HintController : MonoBehaviour
             hintSessionCharged = true;
         }
 
-        StartCoroutine(PlayHint());
+        ResumePausedHint();
     }
 
     /// <summary>Reklam sonrası çağrılacak: hint hakkı ekler ve label'ı günceller.</summary>
@@ -372,10 +396,84 @@ public class HintController : MonoBehaviour
             GrantHintsFromAd(ads.HintsGrantedPerAd);
 
             if (autoPlayHintAfterAd && GetHintCredits() > 0 && !isPlaying)
-                BeginHintSpendingCredit();
+                QueueAutoHint();
             else
                 RefreshHintCreditsLabel();
         });
+    }
+
+    private bool IsAppInForeground => appHasFocus && !appPaused;
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        appHasFocus = hasFocus;
+        OnForegroundChanged();
+    }
+
+    private void OnApplicationPause(bool paused)
+    {
+        appPaused = paused;
+        OnForegroundChanged();
+    }
+
+    private void OnForegroundChanged()
+    {
+        if (!IsAppInForeground)
+        {
+            // Store vb. açılırsa ipucu duraklar; dönünce kaldığı yerden otomatik sürer
+            if (isPlaying)
+            {
+                isPlaying = false;
+                pendingAutoHint = true;
+            }
+            return;
+        }
+
+        lastForegroundTime = Time.realtimeSinceStartup;
+        if (pendingAutoHint && autoHintRoutine == null && isActiveAndEnabled)
+            autoHintRoutine = StartCoroutine(StartHintWhenAppReady());
+    }
+
+    private void QueueAutoHint()
+    {
+        pendingAutoHint = true;
+        RefreshHintCreditsLabel();
+        if (autoHintRoutine == null)
+            autoHintRoutine = StartCoroutine(StartHintWhenAppReady());
+    }
+
+    private void CancelPendingAutoHint()
+    {
+        pendingAutoHint = false;
+        if (autoHintRoutine != null)
+        {
+            StopCoroutine(autoHintRoutine);
+            autoHintRoutine = null;
+        }
+    }
+
+    private IEnumerator StartHintWhenAppReady()
+    {
+        float startTime = Time.realtimeSinceStartup;
+        while (true)
+        {
+            bool adShowing = AdsManager.Instance != null && AdsManager.Instance.IsShowing;
+            float settledSince = Mathf.Max(startTime, lastForegroundTime);
+            if (IsAppInForeground && !adShowing && Time.realtimeSinceStartup - settledSince >= resumeSettleDelay)
+                break;
+            yield return null;
+        }
+
+        autoHintRoutine = null;
+        if (!pendingAutoHint || isPlaying) yield break;
+        pendingAutoHint = false;
+
+        if (hintSessionCharged && savedMoves != null)
+            ResumePausedHint();
+        else if (GetHintCredits() > 0)
+            BeginHintSpendingCredit();
+        else
+            RefreshHintCreditsLabel();
     }
 
     private void EnsureHintCreditsInitialized()
@@ -413,7 +511,25 @@ public class HintController : MonoBehaviour
         hintButtonText.text = credits > 0 ? credits.ToString() : AdLabel;
     }
 
+    private void ResumePausedHint()
+    {
+        // Geri sarma sürerken duraklatıldıysa aynı çalıştırma devam eder; ikinci kopya açılmaz
+        if (hintRoutineAlive)
+            isPlaying = true;
+        else
+            StartCoroutine(PlayHint());
+    }
+
     private IEnumerator PlayHint()
+    {
+        int runId = ++hintRunId;
+        hintRoutineAlive = true;
+        yield return PlayHintSteps(runId);
+        if (runId == hintRunId)
+            hintRoutineAlive = false;
+    }
+
+    private IEnumerator PlayHintSteps(int runId)
     {
         isPlaying = true;
 
@@ -467,10 +583,13 @@ public class HintController : MonoBehaviour
             {
                 yield return null;
             }
+
+            if (runId != hintRunId) yield break;
         }
 
         for (int i = resumeMoveIndex; i < savedMoves.Length; i++)
         {
+            if (runId != hintRunId) yield break;
             if (!isPlaying)
             {
                 resumeMoveIndex = i;
@@ -479,6 +598,7 @@ public class HintController : MonoBehaviour
 
             while (tc.IsMoving)
             {
+                if (runId != hintRunId) yield break;
                 if (!isPlaying) { resumeMoveIndex = i; yield break; }
                 yield return null;
             }
